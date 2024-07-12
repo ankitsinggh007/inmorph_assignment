@@ -720,3 +720,598 @@ function binarySearch(arr, target) {
 
     return -1;
 }
+
+
+const input33 = document.getElementById('input-form-33');
+
+const input33Array = document.getElementById('input-33');
+const input33num = document.getElementById('input-33-num');
+const answer33 = document.getElementById('answer-33');
+
+input33.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    let inputValue = input33.elements['input-33'].value;
+
+    inputValue = inputValue.split(',');
+
+    let array = [];
+
+    console.log(input33num, "33")
+    for (let i = 0; i < inputValue.length; i++) {
+
+        const arr = [];
+
+        for (let j = i; j < input33num.value; j++) {
+
+            arr.push(inputValue[j]);
+        }
+        array.push(arr);
+    }
+    console.log(array);
+
+
+
+});
+
+const inputForm34 = document.getElementById('form-34');
+
+const string34 = document.getElementById('string-34');
+
+const letter34 = document.getElementById('letter-34');
+
+const answer34 = document.getElementById('answer-34');
+
+inputForm34.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    let string = string34.value.split('');
+
+    let letter = letter34.value;
+
+    let count = 0;
+
+    for (let i = 0; i < string.length; i++) {
+        if (string[i].toLowerCase() === letter.toLowerCase()) {
+            count++;
+        }
+    }
+
+    answer34.innerText = `The letter "${letter}" appears ${count} times in the string "${string}".`;
+
+
+});
+
+const inputForm35 = document.getElementById('form-35');
+
+const string35 = document.getElementById('string-35');
+
+const answer35 = document.getElementById('answer-35');
+
+inputForm35.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    let string = string35.value.split('');
+    let notRepeatedString = '';
+
+    for (let i = 0; i < string.length; i++) {
+
+        if (notRepeatedString.includes(string[i]))
+            notRepeatedString = notRepeatedString.replace(string[i], '');
+
+        else
+            notRepeatedString += string[i];
+
+    }
+
+    answer35.innerText = `${notRepeatedString[0]} is  correct ans`;
+
+
+
+
+
+
+});
+
+
+const inputForm36 = document.getElementById('form-36');
+
+const string36 = document.getElementById('country-names-36');
+
+const answer36 = document.getElementById('answer-36');
+
+
+inputForm36.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+
+    let country = string36.value.split(',');
+
+    console.log(country);
+
+    let ans = country[0];
+
+    for (let i = 0; i < country.length; i++) {
+
+        if (country[i].length > ans.length) {
+            ans = country[i];
+        }
+
+    }
+
+    answer36.innerText = `The longest country name is "${ans}".`;
+
+
+});
+
+
+const form37 = document.getElementById('form-37');
+
+let input37 = document.getElementById('string-37');
+
+const answer37 = document.getElementById('answer-37');
+
+
+form37.addEventListener('submit', (e) => {
+
+    console.log("helloe")
+    e.preventDefault();
+
+
+    let array = [];
+    console.log(input37.value);
+
+    input37 = input37.value;
+    let repeated = '';
+    for (let i = 0; i < input37.length; i++) {
+
+        if (repeated.includes(input37[i])) {
+
+            array.push(repeated);
+
+            repeated = input37[i];
+
+        }
+        else {
+            repeated += input37[i];
+        }
+
+        if (i + 1 == input37.length) {
+            array.push(repeated);
+            repeated = '';
+
+        }
+    }
+    console.log(array, "arr")
+
+    let ans = ''
+    for (let i = 0; i < array.length; i++) {
+
+        if (ans.length < array[i].length)
+            ans = array[i];
+
+    }
+
+
+    answer37.innerText = `The longest repeated substring is "${ans}".`;
+
+
+
+});
+
+const form38 = document.getElementById('form-38');
+
+const number38 = document.getElementById('number-38');
+
+const answer38 = document.getElementById('answer-38');
+
+form38.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const ans = factorial(number38.value);
+
+    answer38.innerText = `The factorial of ${number38.value} is ${ans}.`;
+})
+
+function factorial(n) {
+
+    if (n === 0 || n === 1) return 1;
+
+    return n * factorial(n - 1);
+
+}
+
+
+const form39 = document.getElementById('form-39');
+
+const number139 = document.getElementById('number1-39');
+
+const number239 = document.getElementById('number2-39');
+
+const answer39 = document.getElementById('answer-39');
+
+
+form39.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    const ans = findGCD(number139.value, number239.value);
+
+    answer39.innerText = `The GCD of ${number139.value} and ${number239.value} is ${ans}.`;
+
+})
+
+function findGCD(a, b) {
+    if (a == 0 || a < 0)
+        return b;
+    if (b == 0 || b < 0)
+        return a;
+
+
+    if (a == b)
+        return a;
+
+
+    if (a > b)
+        return findGCD(a - b, b);
+    return findGCD(a, b - a);
+}
+
+
+const form40 = document.getElementById('form-40');
+
+const start40 = document.getElementById('start-40');
+
+const end40 = document.getElementById('end-40');
+
+
+const answer40 = document.getElementById('answer-40');
+
+
+form40.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    let ans = [];
+
+    getRange(+start40.value, +end40.value, ans);
+
+    console.log(ans, "ans")
+
+})
+
+
+function getRange(start, end, ans) {
+
+    if (end - start <= 0) return;
+
+    if (end - start == 1) return;
+    ans.push(start + 1);
+
+    getRange(start + 1, end, ans);
+
+
+}
+
+const frorm41 = document.getElementById('form-41');
+
+
+const array41 = document.getElementById('array-41');
+
+const answer41 = document.getElementById('answer-41');
+
+
+frorm41.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    let ans = sum(array41.value.split(',').map((obj) => +obj));
+
+    answer41.innerText = `The sum of the array elements is ${ans}.`;
+
+});
+
+function sum(array) {
+    if (array.length === 1) return array[0];
+    const last = array.pop();
+    array[0] += +last;
+    return sum(array);
+
+}
+
+const form42 = document.getElementById('form-42');
+
+const base42 = document.getElementById('base-42');
+
+const exponent42 = document.getElementById('exponent-42');
+
+const answer42 = document.getElementById('answer-42');
+
+
+form42.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    let ans = exponentFun(base42.value, exponent42.value);
+
+    answer42.innerText = `The result of ${base42.value} raised to the power of ${exponent42.value} is ${ans}.`;
+
+
+
+});
+
+function exponentFun(base, exponent) {
+
+    if (exponent <= 0) return 1;
+
+    return base * exponentFun(base, exponent - 1);
+
+
+}
+
+const form43 = document.getElementById('form-43');
+const fibon = document.getElementById('n-43');
+
+const answer43 = document.getElementById('answer-43');
+
+
+
+form43.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    const n = parseInt(fibon.value.trim());
+
+    if (n > 0) {
+        const fibonacciSequence = getFibonacciSequence(n);
+        answer43.innerText = `The first ${n} Fibonacci numbers are: ${fibonacciSequence.join(', ')}.`;
+    } else {
+        answer43.innerText = 'Please enter a positive integer.';
+    }
+
+
+});
+
+function getFibonacciSequence(n, sequence = [0, 1]) {
+    if (n <= 2) return sequence.slice(0, n);
+    if (sequence.length >= n) return sequence;
+    const nextTerm = sequence[sequence.length - 1] + sequence[sequence.length - 2];
+    return getFibonacciSequence(n, [...sequence, nextTerm]);
+}
+
+const form44 = document.getElementById('form-44');
+
+const number44 = document.getElementById('number-44');
+
+const answer44 = document.getElementById('answer-44');
+
+
+form44.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    let ans = isEven(number44.value);
+
+    answer44.innerText = `The number ${number44.value} is ${ans == 1 ? 'even' : "odd"}.`;
+
+});
+function isEven(num) {
+    if (num === 0) return true;
+    if (num === 1) return false;
+    return isEven(num - 2);
+}
+
+const form45 = document.getElementById('form-45');
+
+const number145 = document.getElementById('number1-45');
+
+const number245 = document.getElementById('number2-45');
+
+const answer45 = document.getElementById('answer-45');
+
+
+form45.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    let ans = +number145.value > +number245.value ? number145.value : number245.value;
+
+
+    answer45.innerText = `The maximum of ${number145.value} and ${number245.value} is ${ans}.`;
+
+});
+
+
+const form46 = document.getElementById('form-46');
+
+const number146 = document.getElementById('number1-46');
+
+const number246 = document.getElementById('number2-46');
+
+const number346 = document.getElementById('number3-46');
+
+const answer46 = document.getElementById('answer-46');
+
+
+form46.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let ans = '';
+
+    let product = +number146.value * +number246.value * +number346.value;
+    console.log(product);
+    if (product < 0) {
+
+        ans = 'negative';
+    }
+    else {
+        ans = 'positive';
+    }
+    alert(`your product will have ${ans} value`)
+})
+
+const form47 = document.getElementById('form-47');
+
+const number147 = document.getElementById('number1-47');
+
+const number247 = document.getElementById('number2-47');
+
+const number347 = document.getElementById('number3-47');
+
+const answer47 = document.getElementById('answer-47');
+
+
+form47.addEventListener('submit', (e) => {
+
+
+    e.preventDefault();
+    let num1 = number147.value;
+    let num2 = number247.value;
+    let num3 = number347.value;
+
+    if (num1 >= num2 && num1 >= num3) {
+        if (num2 >= num3) {
+            console.log(`${num1}, ${num2}, ${num3}`);
+        } else {
+            console.log(`${num1}, ${num3}, ${num2}`);
+        }
+    } else if (num2 >= num1 && num2 >= num3) {
+        if (num1 >= num3) {
+            console.log(`${num2}, ${num1}, ${num3}`);
+        } else {
+            console.log(`${num2}, ${num3}, ${num1}`);
+        }
+    } else if (num3 >= num1 && num3 >= num2) {
+        if (num1 >= num2) {
+            console.log(`${num3}, ${num1}, ${num2}`);
+        } else {
+            console.log(`${num3}, ${num2}, ${num1}`);
+        }
+    }
+
+
+});
+
+const from48 = document.getElementById('form-48');
+
+const answer48 = document.getElementById('answer-48');
+
+
+from48.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    for (let i = 0; i < 15; i++) {
+
+        if (i % 2 == 0) {
+            answer48.innerText += `${i} is even. \n`;
+        }
+        else {
+            answer48.innerText += `${i} is odd. \n`;
+        }
+
+    }
+
+
+
+
+
+
+});
+
+const form50 = document.getElementById('form-50');
+
+
+const answer50 = document.getElementById('answer-50');
+
+
+form50.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    for (let i = 1; i < 100; i++) {
+
+        if (i / 3 == 0 && i % 5 !== 0) {
+            answer50.innerText += `Fizz \n`;
+        }
+        else if (i % 5 == 0 && i % 3 !== 0) {
+            answer50.innerText += `Buzz \n`;
+        }
+        else if (i % 3 == 0 && i % 5 == 0) {
+            answer50.innerText += `FizzBuzz \n`;
+        }
+    }
+
+});
+
+const form51 = document.getElementById('form-51');
+
+const answer51 = document.getElementById('answer-51');
+
+
+form51.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let ans = findArmstrongNumbers();
+    answer51.innerText = `The Armstrong numbers between 100 and 999 are: ${ans.join(', ')}`;
+})
+
+
+
+
+function findArmstrongNumbers() {
+    let armstrongNumbers = [];
+
+    for (let i = 100; i <= 999; i++) {
+        if (isArmstrong(i)) {
+            armstrongNumbers.push(i);
+        }
+    }
+
+    return armstrongNumbers;
+}
+
+function isArmstrong(num) {
+    let sum = 0;
+    let temp = num;
+
+    while (temp > 0) {
+        let digit = temp % 10;
+        sum += digit ** 3;
+        temp = Math.floor(temp / 10);
+    }
+
+    return sum === num;
+}
+
+const form52 = document.getElementById('form-52');
+
+const answer52 = document.getElementById('answer-52');
+
+
+form52.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    let ans = sumMultiplesOf3And5();
+
+    answer52.innerText = `The sum of all multiples of 3 and 5 below 1000 is: ${ans}`;
+
+
+
+});
+
+function sumMultiplesOf3And5() {
+    let sum = 0;
+
+    for (let i = 1; i < 1000; i++) {
+        if (i % 3 === 0 || i % 5 === 0) {
+            sum += i;
+        }
+    }
+
+    return sum;
+}

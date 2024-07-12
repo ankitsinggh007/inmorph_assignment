@@ -311,6 +311,489 @@ Current time is : 4 PM : 50 : 22</pre>
             <p id="search-result"></p>
         </div>
 
+
+        <div>
+            <h3 class="question-32">Write a JavaScript function that returns array elements larger than a number.</h3>
+
+            <pre><code>
+            function getElementsLargerThan(arr, num) {
+                return arr.filter(function(element) {
+                    return element > num;
+                });
+            }
+                    </code></pre>
+        </div>
+
+        <div>
+            <h3 class="question-33">
+
+                33. Write a JavaScript function to get all possible subset with a fixed length (for example 2)
+                combinations in an
+                array.<br>
+                Sample array : [1, 2, 3] and subset length is 2<br>
+                Expected output : [[2, 1], [3, 1], [3, 2]] </h3>
+            <form id="input-form-33">
+                <input type="text" id="input-33" />
+                <input type="number" id="input-33-num" />
+                <button type="'submit'">Submit</button>
+            </form>
+            <p id="'answer-33"></p>
+
+
+        </div>
+
+
+
+        <h3 class="question">
+            Write a JavaScript function that accepts two arguments, a string and a letter and the function will count
+            the number of
+            occurrences of the specified letter within the string.
+            Sample arguments : 'w3resource.com', 'o'
+            Expected output : 2
+        </h3>
+        <div>
+            <form id="form-34">
+                <label for="string-34">Enter a string:</label>
+                <input type="text" id="string-34" placeholder="Enter a string">
+                <br>
+                <label for="letter-34">Enter a letter:</label>
+                <input type="text" id="letter-34" placeholder="Enter a letter">
+                <button type="submit">Count Occurrences</button>
+
+            </form>
+
+            <p class="answer" id="answer-34">
+
+            </p>
+        </div>
+
+        <div>
+
+            <h3 class="question">
+                Write a JavaScript function to find the first not repeated character. Sample arguments : 'abacddbec'
+                Expected output : 'e'
+            </h3>
+            <form id="form-35">
+                <label for="string-35">Enter a string:</label>
+                <input type="text" id="string-35" placeholder="Enter a string">
+                <button type="submit">Find First Not Repeated Character</button>
+            </form>
+            <p class="answer" id="answer-35">
+
+            </p>
+
+        </div>
+
+        <div>
+            <h3 class="'question">
+                Write a JavaScript function that accept a list of country names as input and returns the longest country
+                name as output.
+                Sample function : Longest_Country_Name(["Australia", "Germany", "United States of America"])
+                Expected output : "United States of America"
+            </h3>
+
+            <form id="form-36">
+                <label for="country-names-36">Enter country names (comma-separated):</label>
+                <input type="text" id="country-names-36" placeholder="Enter country names">
+                <button type="submit">Find Longest Country Name</button>
+            </form>
+
+            <p class="answer" id="answer-36">
+
+            </p>
+
+
+        </div>
+
+        <div>
+
+            <h3 class="'question">
+                Write a JavaScript function to find longest substring in a given a string without
+                repeating characters.
+            </h3>
+            <form id="form-37">
+                <label for="string-37">Enter a string:</label>
+                <input type="text" id="string-37" placeholder="Enter a string">
+                <button type="submit">Find Longest Substring</button>
+            </form>
+            <p class="answer" id="answer-37">
+
+            </p>
+
+        </div>
+    </section>
+
+    <section id="javascript_recurssion">
+        <div>
+
+            <h3 class="question">
+                Write a JavaScript program to calculate the factorial of a number.
+                In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive
+                integers less
+                than or equal to n. For example, 5! = 5 x 4 x 3
+                x 2 x 1 = 120
+
+            </h3>
+
+            <form id="form-38">
+                <label for="number-38">Enter a number:</label>
+                <input type="number" id="number-38" placeholder="Enter a number">
+                <button type="submit">Calculate Factorial</button>
+            </form>
+            <p class="answer" id="answer-38">
+
+            </p>
+
+        </div>
+
+        <div>
+            <h3 id="'question">
+                Write a JavaScript program to find the greatest common divisor (gcd) of two positive numbers.
+            </h3>
+
+            <form id="form-39">
+                <label for="number1-39">Enter first number:</label>
+                <input type="number" id="number1-39" placeholder="Enter first number">
+                <br>
+                <label for="number2-39">Enter second number:</label>
+                <input type="number" id="number2-39" placeholder="Enter second number">
+                <button type="submit">Calculate GCD</button>
+            </form>
+            <p class="answer" id="answer-39">
+
+            </p>
+
+
+        </div>
+        <div>
+            <h3 id="question">
+                Write a JavaScript program to get the integers in range (x, y).
+                Example : range(2, 9)
+            </h3>
+            <form id="form-40">
+
+                <label for="start-40">Enter start:</label>
+                <input type="number" id="start-40" placeholder="Enter start">
+
+                <label for="end-40">Enter end:</label>
+                <input type="number" id="end-40" placeholder="Enter end">
+
+                <button type="submit">calculate</button>
+
+
+            </form>
+            <p class="answer" id="answer-40">
+
+            </p>
+        </div>
+
+        <div>
+
+            <h3 id="question">
+                Write a JavaScript program to compute the sum of an array of integers. Example : var array = [1, 2, 3,
+                4, 5, 6]
+                Expected Output : 21
+            </h3>
+
+            <form id="form-41">
+                <label for="array-41">Enter array (comma-separated):</label>
+                <input type="text" id="array-41" placeholder="Enter array">
+                <button type="submit">Calculate Sum</button>
+            </form>
+
+            <p class="answer" id="answer-41">
+
+            </p>
+
+
+        </div>
+
+        <div>
+
+            <h3 id="question">
+                Write a JavaScript program to compute the exponent of a number.
+                Note : The exponent of a number says how many times the base number is used as a factor.
+                82 = 8 x 8 = 64. Here 8 is the base and 2 is the exponent.
+            </h3>
+
+            <form id="form-42">
+                <label for="base-42">Enter base:</label>
+                <input type="number" id="base-42" placeholder="Enter base">
+                <br>
+                <label for="exponent-42">Enter exponent:</label>
+                <input type="number" id="exponent-42" placeholder="Enter exponent">
+                <button type="submit">Calculate Exponent</button>
+            </form>
+
+            <p class="answer" id="answer-42">
+
+            </p>
+
+
+
+        </div>
+
+        <div>
+            <h3 class="question">
+                Write a JavaScript program to get the first n Fibonacci numbers.
+                Note : The Fibonacci Sequence is the series of numbers: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, . . . Each
+                subsequent number is
+                the sum of the previous two.
+                .
+            </h3>
+
+            <form id="form-43">
+                <label for="n-43">Enter n:</label>
+                <input type="number" id="n-43" placeholder="Enter n">
+                <button type="submit">Calculate Fibonacci Numbers</button>
+            </form>
+            <p class="answer" id="answer-43">
+
+            </p>
+
+        </div>
+
+        <div>
+            <h3 class="question">
+                Write a JavaScript program to check whether a number is even or not.
+            </h3>
+            <form id="form-44">
+                <label for="number-44">Enter a number:</label>
+                <input type="number" id="number-44" placeholder="Enter a number">
+                <button type="submit">Check Evenness</button>
+            </form>
+            <p class="answer" id="answer-44">
+
+            </p>
+        </div>
+
+
+
+    </section>
+
+
+    <section>
+
+
+        <div>
+
+
+            <h3 class="question">
+                Write a JavaScript program that accept two integers and display the larger.
+
+            </h3>
+            <form id="form-45">
+                <label for="number1-45">Enter first number:</label>
+                <input type="number" id="number1-45" placeholder="Enter first number">
+                <br>
+                <label for="number2-45">Enter second number:</label>
+                <input type="number" id="number2-45" placeholder="Enter second number">
+                <button type="submit">Find Larger</button>
+            </form>
+            <p class="answer" id="answer-45">
+
+            </p>
+        </div>
+
+        <div>
+
+            <h3 class="question">
+                Write a JavaScript conditional statement to find the sign of product of three numbers. Display an alert
+                box with the
+                specified sign.
+                Sample numbers : 3, -7, 2
+                Output : The sign is -
+
+
+            </h3>
+            <form id="form-46">
+                <label for="number1-46">Enter first number:</label>
+                <input type="number" id="number1-46" placeholder="Enter first number">
+                <br>
+                <label for="number2-46">Enter second number:</label>
+                <input type="number" id="number2-46" placeholder="Enter second number">
+                <br>
+                <label for="number3-46">Enter third number:</label>
+                <input type="number" id="number3-46" placeholder="Enter third number">
+                <button type="submit">Find Sign</button>
+            </form>
+
+            <p class="answer" id="answer-46">
+
+            </p>
+
+        </div>
+        <div>
+            <h3 class="question">
+                Write a JavaScript conditional statement to sort three numbers. Display an alert box to show the result.
+                Sample numbers : 0, -1, 4
+                Output : 4, 0, -1
+            </h3>
+            <form id="form-47">
+                <label for="number1-47">Enter first number:</label>
+                <input type="number" id="number1-47" placeholder="Enter first number">
+                <br>
+                <label for="number2-47">Enter second number:</label>
+                <input type="number" id="number2-47" placeholder="Enter second number">
+                <br>
+                <label for="number3-47">Enter third number:</label>
+                <input type="number" id="number3-47" placeholder="Enter third number">
+                <button type="submit">Sort Numbers</button>
+
+            </form>
+            <p class="answer" id="answer-47">
+
+            </p>
+        </div>
+
+
+
+        <div>
+            <h3 class="question">
+                Write a JavaScript for loop that will iterate from 0 to 15. For each iteration, it will check if the
+                current number is
+                odd or even, and display a message to the screen.
+                Sample Output :
+                "0 is even" "1 is odd" "2 is even" ---------- ----------
+            </h3>
+            <form id="form-48">
+                <button type="submit">Print Evenness</button>
+            </form>
+
+            <p class="answer" id="answer-48">
+
+            </p>
+
+        </div>
+
+        <div>
+            <h3>Compute Average Marks and Grades</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Marks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>David</td>
+                        <td>80</td>
+                    </tr>
+                    <tr>
+                        <td>Vinoth</td>
+                        <td>77</td>
+                    </tr>
+                    <tr>
+                        <td>Divya</td>
+                        <td>88</td>
+                    </tr>
+                    <tr>
+                        <td>Ishitha</td>
+                        <td>95</td>
+                    </tr>
+                    <tr>
+                        <td>Thomas</td>
+                        <td>68</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>The grades are computed as follows :</h3>
+            <h3>Compute Average Marks and Grades</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Range</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&lt;60</td>
+                        <td>F</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;70</td>
+                        <td>D</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;80</td>
+                        <td>C</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;90</td>
+                        <td>B</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;100</td>
+                        <td>A</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="answer" id="answer-49">
+
+            <p>Average Marks: 80.2</p>
+
+            <p>Grades:</p>
+
+            <p>David: B</p>
+            <p>Vinoth: A</p>
+            <p>Divya: C</p>
+            <p>Ishitha: A</p>
+            <p>Thomas: F</p>
+            <p>Total Students: 5</p>
+
+
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3 class="question">
+                Write a JavaScript program which iterates the integers from 1 to 100. But for multiples of three print
+                "Fizz" instead of
+                the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and
+                five print
+            </h3>
+
+            <form id="form-50">
+                <button type="submit">Print FizzBuzz</button>
+            </form>
+            <p class="answer" id="answer-50">
+
+            </p>
+        </div>
+
+        <div>
+            <h3 class="question">
+                Write a JavaScript program to find the armstrong numbers of 3 digits.
+                Note : An Armstrong number of three digits is an integer such that the sum of the
+                cubes of its digits is equal to the number itself. For example, 371 is an Armstrong number since 3**3 +
+                7**3 + 1**3 =
+                371.
+            </h3>
+            <form id="form-51">
+                <button type="submit">Find Armstrong Numbers</button>
+            </form>
+            <p class="answer" id="answer-51">
+
+            </p>
+        </div>
+
+        <div>
+            <h3 class="question">
+                Write a JavaScript program to sum the multiples of 3 and 5 under 1000.
+            </h3>
+            <form id="form-52">
+                <button type="submit">Sum Multiples of 3 and 5</button>
+            </form>
+            <p class="answer" id="answer-52">
+
+            </p>
+        </div>
     </section>
 
 
