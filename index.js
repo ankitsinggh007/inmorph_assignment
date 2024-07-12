@@ -226,6 +226,497 @@ multiplicationFrom.addEventListener('submit', (e) => {
 })
 
 
+const tempConverter = document.getElementById('celsiusToFahrenheit');
+const input11 = document.getElementById('celsius');
+const answer11 = document.getElementById('answer-11');
+
+tempConverter.addEventListener('submit', (e) => {
+    e.preventDefault();
+    answer11.innerText = convertTemp(input11.value);
+});
+
+function convertTemp(celsius) {
+    let fahrenheit = (celsius * 9 / 5) + 32;
+    return `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
+}
+
+const answer12 = document.getElementById('answer-12');
+answer12.innerText = `Current URL: ${window.location.href}`;
+
+
+const reverseForm = document.getElementById('reverseNumber');
+
+const input13 = document.getElementById('input-13');
+
+const answer13 = document.getElementById('answer-13');
+reverseForm.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    let reversed = input13.value.split('').reverse().join('');
+
+    answer13.innerText = `Reversed String: ${reversed}`;
+
+
+});
 
 
 
+const palindromeForm = document.getElementById('palindromeForm');
+const inputPalindrome = document.getElementById('inputPalindrome');
+const answer14 = document.getElementById('answer-14');
+
+palindromeForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let str = inputPalindrome.value.trim();
+
+    if (isPalindrome(str)) {
+        answer14.innerText = `"${str}" is a palindrome! 🎉`;
+    } else {
+        answer14.innerText = `"${str}" is not a palindrome. 😕`;
+    }
+});
+
+function isPalindrome(str) {
+    // Remove non-alphanumeric characters and convert to lowercase
+    let cleanStr = str.replace(/[\W_]/g, '').toLowerCase();
+    return cleanStr === cleanStr.split('').reverse().join('');
+}
+const combinationsForm = document.getElementById('combinationsForm');
+const inputCombination = document.getElementById('inputCombination');
+const answer16 = document.getElementById('answer-16');
+
+combinationsForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let str = inputCombination.value.trim();
+
+    let combinations = generateCombinations(str);
+
+    answer16.innerText = `Combinations: ${combinations.join(', ')}`;
+});
+
+function generateCombinations(str) {
+    let result = [];
+    for (let i = 0; i < str.length; i++) {
+        for (let j = i + 1; j <= str.length; j++) {
+            result.push(str.slice(i, j));
+        }
+    }
+    return result;
+}
+
+const alphabeticalForm = document.getElementById('alphabeticalForm');
+const inputAlphabetical = document.getElementById('inputAlphabetical');
+const answer17 = document.getElementById('answer-17');
+
+alphabeticalForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let str = inputAlphabetical.value.trim();
+
+    let sortedString = sortStringAlphabetically(str);
+
+    answer17.innerText = `Sorted String: ${sortedString}`;
+});
+
+function sortStringAlphabetically(str) {
+    return str.split('').sort().join('');
+}
+
+
+const uppercaseForm = document.getElementById('uppercaseForm');
+const inputUppercase = document.getElementById('inputUppercase');
+const answer18 = document.getElementById('answer-18');
+
+uppercaseForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let str = inputUppercase.value.trim();
+
+    let convertedString = convertFirstLetterToUpperCase(str);
+
+    answer18.innerText = `Converted String: ${convertedString}`;
+});
+
+function convertFirstLetterToUpperCase(str) {
+    return str.replace(/\b[a-zA-Z]/g, function (char) {
+        return char.toUpperCase();
+    });
+}
+
+const longestWordForm = document.getElementById('longestWordForm');
+const input19 = document.getElementById('input-19');
+const answer19 = document.getElementById('answer-19');
+
+longestWordForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const inputValue = input19.value.trim();
+
+    const longestWord = findLongestWord(inputValue);
+
+    answer19.innerText = `Longest word in "${inputValue}": ${longestWord}`;
+});
+
+function findLongestWord(str) {
+    let words = str.split(/\s+/);
+    let longestWord = '';
+
+    words.forEach(word => {
+        let cleanWord = word.replace(/[^a-zA-Z]/g, '');
+        if (cleanWord.length > longestWord.length) {
+            longestWord = cleanWord;
+        }
+    });
+
+    return longestWord;
+}
+
+const countVowelsForm = document.getElementById('countVowelsForm');
+const input20 = document.getElementById('input-20');
+const answer20 = document.getElementById('answer-20');
+
+countVowelsForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const inputValue = input20.value.trim();
+
+    const vowelCount = countVowels(inputValue);
+
+    answer20.innerText = `Number of vowels in "${inputValue}": ${vowelCount}`;
+});
+
+function countVowels(str) {
+    const vowels = 'aeiouAEIOU';
+    let count = 0;
+
+    for (let char of str) {
+        if (vowels.includes(char)) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+const checkPrimeForm = document.getElementById('checkPrimeForm');
+const input21 = document.getElementById('input-21');
+const answer21 = document.getElementById('answer-21');
+
+checkPrimeForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const inputValue = parseInt(input21.value.trim());
+
+    const isPrime = isPrimeNumber(inputValue);
+
+    if (isPrime) {
+        answer21.innerText = `${inputValue} is a prime number.`;
+    } else {
+        answer21.innerText = `${inputValue} is not a prime number.`;
+    }
+});
+
+function isPrimeNumber(num) {
+    if (num <= 1) {
+        return false;
+    }
+
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+const checkTypeForm = document.getElementById('checkTypeForm');
+const input22 = document.getElementById('input-22');
+const answer22 = document.getElementById('answer-22');
+
+checkTypeForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const inputValue = input22.value.trim();
+
+    const type = getInputType(inputValue);
+
+    answer22.innerText = `Type of '${inputValue}' is ${type}`;
+});
+
+function getInputType(value) {
+    if (value === undefined || value === "") {
+        return "undefined/empty";
+    }
+
+    if (!isNaN(value) && value !== "") {
+        return Number.isInteger(parseFloat(value)) ? "integer" : "float";
+    }
+
+    if (value.toLowerCase() === "true" || value.toLowerCase() === "false") {
+        return "boolean";
+    }
+
+
+
+    return "string";
+}
+
+
+const identityMatrixForm = document.getElementById('identityMatrixForm');
+const input23 = document.getElementById('input-23');
+const answer23 = document.getElementById('answer-23');
+
+identityMatrixForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const n = parseInt(input23.value.trim());
+
+    const matrix = generateIdentityMatrix(n);
+
+    answer23.innerText = matrix.map(row => row.join(' ')).join('\n');
+});
+
+function generateIdentityMatrix(n) {
+    const matrix = [];
+
+    for (let i = 0; i < n; i++) {
+        const row = [];
+        for (let j = 0; j < n; j++) {
+            row.push(i === j ? 1 : 0);
+        }
+        matrix.push(row);
+    }
+
+    return matrix;
+}
+
+const numbersForm = document.getElementById('numbersForm');
+const inputNumbers = document.getElementById('input-numbers');
+const answer24 = document.getElementById('answer-24');
+
+numbersForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const numbers = inputNumbers.value.trim().split(',').map(num => parseInt(num.trim()));
+
+    const result = findSecondLowestAndGreatest(numbers);
+
+    answer24.innerText = `Second Lowest: ${result.secondLowest}, Second Greatest: ${result.secondGreatest}`;
+});
+
+function findSecondLowestAndGreatest(arr) {
+    if (arr.length < 2) {
+        return { secondLowest: 'Undefined', secondGreatest: 'Undefined' };
+    }
+
+    arr.sort((a, b) => a - b);
+
+    const uniqueNumbers = [...new Set(arr)];
+
+    if (uniqueNumbers.length < 2) {
+        return { secondLowest: 'Undefined', secondGreatest: 'Undefined' };
+    }
+
+    return {
+        secondLowest: uniqueNumbers[1],
+        secondGreatest: uniqueNumbers[uniqueNumbers.length - 2]
+    };
+}
+
+
+const perfectNumberForm = document.getElementById('perfectNumberForm');
+const inputNumber = document.getElementById('input-number');
+const answer25 = document.getElementById('answer-25');
+
+perfectNumberForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const number = parseInt(inputNumber.value.trim());
+
+    const isPerfect = checkPerfectNumber(number);
+
+    answer25.innerText = `${number} ${isPerfect ? 'is' : 'is not'} a perfect number.`;
+});
+
+function checkPerfectNumber(num) {
+    if (num <= 1) {
+        return false;
+    }
+
+    let sum = 1;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            sum += i;
+            if (i !== num / i) {
+                sum += num / i;
+            }
+        }
+    }
+
+    return sum === num;
+}
+
+const factorForm = document.getElementById('factorForm');
+const inputNumber26 = document.getElementById('input-number26');
+const answer26 = document.getElementById('answer-26');
+
+factorForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const number = inputNumber26.value.trim();
+    console.log(inputNumber26);
+    console.log(number, "lk");
+    if (number <= 0 || isNaN(number)) {
+        answer26.innerText = 'Please enter a valid positive integer.';
+        return;
+    }
+
+    const factors = computeFactors(number);
+    answer26.innerText = `Factors of ${number}: ${factors.join(', ')}`;
+});
+
+function computeFactors(num) {
+    const factors = [];
+    for (let i = 1; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            factors.push(i);
+            if (i !== num / i) {
+                factors.push(num / i);
+            }
+        }
+    }
+    factors.sort((a, b) => a - b);
+    return factors;
+}
+
+const exponentForm = document.getElementById('exponentForm');
+const inputBase = document.getElementById('input-base');
+const inputExponent = document.getElementById('input-exponent');
+const answer28 = document.getElementById('answer-28');
+
+exponentForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const base = parseInt(inputBase.value.trim());
+    const exponent = parseInt(inputExponent.value.trim());
+
+    if (isNaN(base) || isNaN(exponent)) {
+        answer28.innerText = 'Please enter valid numbers.';
+        return;
+    }
+
+    const result = computeExponent(base, exponent);
+    answer28.innerText = `${base}^${exponent} = ${result}`;
+});
+
+function computeExponent(base, exponent) {
+    return Math.pow(base, exponent);
+}
+
+const uniqueCharactersForm = document.getElementById('uniqueCharactersForm');
+const inputString = document.getElementById('input-string');
+const answer29 = document.getElementById('answer-29');
+
+uniqueCharactersForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const str = inputString.value.trim();
+
+    const uniqueChars = extractUniqueCharacters(str);
+    answer29.innerText = `Unique Characters: ${uniqueChars}`;
+});
+
+function extractUniqueCharacters(str) {
+    return str
+        .split('')
+        .filter((char, index, self) => self.indexOf(char) === index)
+        .join('');
+}
+
+const occurrencesForm = document.getElementById('occurrencesForm');
+const inputStringOccurrences = document.getElementById('input-string-occurrences');
+const answer30 = document.getElementById('answer-30');
+
+occurrencesForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const str = inputStringOccurrences.value.trim();
+
+    const occurrences = countLetterOccurrences(str);
+    displayOccurrences(occurrences);
+});
+
+function countLetterOccurrences(str) {
+    const counts = {};
+
+    for (let char of str.toLowerCase()) {
+        if (/[a-z]/.test(char)) {
+            counts[char] = counts[char] ? counts[char] + 1 : 1;
+        }
+    }
+
+    return counts;
+}
+
+function displayOccurrences(occurrences) {
+    let tableHTML = '<table>';
+    tableHTML += '<tr><th>Letter</th><th>Occurrences</th></tr>';
+
+    for (let letter in occurrences) {
+        tableHTML += `<tr><td>${letter}</td><td>${occurrences[letter]}</td></tr>`;
+    }
+
+    tableHTML += '</table>';
+    answer30.innerHTML = tableHTML;
+}
+
+const binarySearchForm = document.getElementById('binarySearchForm');
+const inputArray = document.getElementById('input-array');
+const searchValue = document.getElementById('search-value');
+const searchResult = document.getElementById('search-result');
+
+binarySearchForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const arrStr = inputArray.value.trim();
+    const valueToSearch = parseInt(searchValue.value.trim());
+
+    const arr = arrStr.split(',').map(item => parseInt(item.trim()));
+
+    if (!isValidArray(arr)) {
+        searchResult.innerText = 'Please enter a valid sorted array.';
+        return;
+    }
+
+    const index = binarySearch(arr, valueToSearch);
+
+    if (index !== -1) {
+        searchResult.innerText = `Found ${valueToSearch} at index ${index}.`;
+    } else {
+        searchResult.innerText = `${valueToSearch} not found in the array.`;
+    }
+});
+
+function isValidArray(arr) {
+    return Array.isArray(arr) && arr.every(num => typeof num === 'number') && isSorted(arr);
+}
+
+function isSorted(arr) {
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < arr[i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function binarySearch(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (arr[mid] === target) {
+            return mid;
+        } else if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return -1;
+}
