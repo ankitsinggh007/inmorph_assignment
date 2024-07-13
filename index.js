@@ -1315,3 +1315,840 @@ function sumMultiplesOf3And5() {
 
     return sum;
 }
+const form53 = document.getElementById('form-53');
+const obj = document.getElementById('input-53');
+const answer53 = document.getElementById('answer-53');
+
+form53.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log("hi");
+    let value = obj.value;
+    let ans = checkArray(value);
+    answer53.innerText = `The value is ${ans ? 'an array' : 'not an array'}`;
+});
+
+function checkArray(value) {
+    try {
+        let parsed = JSON.parse(value);
+        return Array.isArray(parsed);
+    } catch (error) {
+        return false;
+    }
+}
+
+
+
+const form54 = document.getElementById('form-54');
+const obj54 = document.getElementById('input-54');
+const answer54 = document.getElementById('answer-54');
+
+form54.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+
+    let value = obj54.value;
+
+    let ans = checkArray(value);
+    let cloned = [];
+    if (ans) {
+        cloned = JSON.parse(value);
+
+        answer54.innerHTML = `your cloned value is [${cloned}]`;
+
+    }
+    else {
+        answer54.innerText = 'Please enter a valid array';
+    }
+
+});
+
+
+const form55 = document.getElementById('form-55');
+const array55 = document.getElementById('input-55');
+const number55 = document.getElementById('n-55');
+const answer55 = document.getElementById('answer-55');
+
+form55.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    let value = number55.value;
+
+    let array = array55.value;
+
+    let ans = [];
+
+    if (checkArray(array)) {
+
+        let arr = JSON.parse(array);
+        console.log(arr);
+        for (let i = 0; i < value && i < arr.length; i++) {
+
+            ans.push(arr[i]);
+
+        }
+
+        console.log(ans);
+        ans = JSON.stringify(ans);
+
+        answer55.innerHTML = `here is the first ${value} value : ${ans}`;
+
+
+    }
+    else {
+        answer55.innerText = 'Please enter a valid array';
+        return;
+    }
+
+
+
+
+});
+
+
+const form56 = document.getElementById('form-56');
+const array56 = document.getElementById('input-56');
+const number56 = document.getElementById('n-56');
+const answer56 = document.getElementById('answer-56');
+
+form56.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    let value = number56.value;
+
+    let array = array56.value;
+
+    let ans = [];
+    console.log(value, array)
+    if (checkArray(array)) {
+        let arr = JSON.parse(array);
+
+        for (let i = arr.length; i => value; i--) {
+            ans.push(arr[i]);
+        }
+        console.log(ans);
+        ans = JSON.stringify(ans);
+        answer56.innerHTML = `here is the first ${value} value : ${ans}`;
+    }
+    else {
+        answer56.innerText = 'Please enter a valid array';
+        return;
+    }
+
+
+
+
+});
+
+
+const form57 = document.getElementById('form-57');
+const array57 = document.getElementById('input-57');
+const answer57 = document.getElementById('answer-57');
+
+form57.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    let array = array57.value;
+
+    let ans = [];
+
+    if (checkArray(array)) {
+
+        array = JSON.parse(array);
+
+        ans.push(array.join(' '));
+        ans.push(array.join('+'));
+
+        ans.push(array.join('-'));
+
+
+
+    }
+    else {
+        answer57.innerText = 'Please enter a valid array';
+        return;
+    }
+
+
+    // Join the ans array with line breaks
+    ans = ans.join('\n\n');
+
+    // Use <pre> tag to preserve formatting and line breaks
+    answer57.innerHTML = `<pre>Your array is:\n\n\n${ans}</pre>`;
+
+});
+
+
+
+const form58 = document.getElementById('form-58');
+
+const array58 = document.getElementById('input-58');
+
+const answer58 = document.getElementById('answer-58');
+
+form58.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    let array = array58.value;
+
+    let ans = [];
+
+    if (checkArray(array)) {
+
+        array = JSON.parse(array);
+        ans = array.sort((a, b) => a - b);
+        console.log(ans);
+        ans = ans.join(',');
+
+        // Use <pre> tag to preserve formatting and line breaks
+        answer58.innerHTML = `<pre>Your array is:\n\n\n${ans}</pre>`;
+
+
+    }
+    else {
+        answer58.innerText = 'Please enter a valid array';
+        return;
+    }
+
+
+
+
+});
+
+
+const form59 = document.getElementById('form-59');
+
+const array59 = document.getElementById('input-59');
+
+const answer59 = document.getElementById('answer-59');
+
+form59.addEventListener('submit', (e) => {
+
+
+    e.preventDefault();
+
+
+    let array = array59.value;
+
+    let ans = [];
+
+    if (checkArray(array)) {
+
+        ans = findMostFrequent(array);
+
+        answer59.innerHTML = ans;
+
+
+
+    }
+    else {
+        answer59.innerText = 'Please enter a valid array';
+        return;
+    }
+
+});
+
+function findMostFrequent(arr) {
+    let frequencyMap = {};
+
+    for (let item of arr) {
+        frequencyMap[item] = (frequencyMap[item] || 0) + 1;
+    }
+
+    let maxFrequency = 0;
+    let mostFrequentItem;
+
+    for (let item in frequencyMap) {
+        if (frequencyMap[item] > maxFrequency) {
+            maxFrequency = frequencyMap[item];
+            mostFrequentItem = item;
+        }
+    }
+
+    return `${mostFrequentItem} ( ${maxFrequency} times )`;
+}
+
+
+const form60 = document.getElementById('form-60');
+const input60 = document.getElementById('input-60');
+const answer60 = document.getElementById('answer-60');
+
+form60.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const inputString = input60.value;
+    const swappedString = swapCase(inputString);
+
+    answer60.innerHTML = `<pre>${swappedString}</pre>`;
+});
+
+function swapCase(str) {
+    return str.split('').map(char => {
+        if (char === char.toLowerCase()) {
+            return char.toUpperCase();
+        } else {
+            return char.toLowerCase();
+        }
+    }).join('');
+}
+
+const sampleArray = [
+    [1, 2, 1, 24],
+    [8, 11, 9, 4],
+    [7, 0, 7, 27],
+    [7, 4, 28, 14],
+    [3, 10, 26, 7]
+];
+
+const printArrayButton = document.getElementById('print-array');
+const answer61 = document.getElementById('answer-61');
+
+printArrayButton.addEventListener('click', () => {
+    answer61.innerHTML = ''; // Clear previous output
+    let output = '';
+    for (let i = 0; i < sampleArray.length; i++) {
+        output += `row ${i}\n`;
+        for (let j = 0; j < sampleArray[i].length; j++) {
+            output += ` ${sampleArray[i][j]}\n`;
+        }
+    }
+    answer61.textContent = output;
+});
+
+const form62 = document.getElementById('form-62');
+const input62 = document.getElementById('input-62');
+const answer62 = document.getElementById('answer-62');
+
+form62.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const vector = input62.value.split(',').map(Number);
+
+    if (vector.some(isNaN)) {
+        answer62.innerText = 'Please enter a valid numeric vector.';
+        return;
+    }
+
+    const sumOfSquares = vector.reduce((sum, num) => sum + num * num, 0);
+
+    answer62.innerHTML = `<pre>The sum of squares is: ${sumOfSquares}</pre>`;
+});
+
+const form63 = document.getElementById('form-63');
+const input63 = document.getElementById('input-63');
+const answer63 = document.getElementById('answer-63');
+
+form63.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const array = input63.value.split(',').map(Number);
+
+    if (array.some(isNaN)) {
+        answer63.innerText = 'Please enter a valid array of integers.';
+        return;
+    }
+
+    const sum = array.reduce((acc, num) => acc + num, 0);
+    const product = array.reduce((acc, num) => acc * num, 1);
+
+    answer63.innerHTML = `<pre>Sum: ${sum}\n\n\nProduct: ${product}</pre>`;
+});
+
+const form64 = document.getElementById('form-64');
+const input64 = document.getElementById('input-64');
+const answer64 = document.getElementById('answer-64');
+
+let array = [];
+
+form64.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const item = input64.value.trim();
+
+    if (item) {
+        array.push(item);
+        input64.value = '';
+    }
+
+    answer64.innerHTML = `<pre>Array items:${array.join(', ')}</pre>`;
+});
+
+const form65 = document.getElementById('form-65');
+const input65 = document.getElementById('input-65');
+const answer65 = document.getElementById('answer-65');
+
+form65.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let array = input65.value.trim();
+
+    if (isValidArray(array)) {
+        array = JSON.parse(array);
+        const uniqueArray = removeDuplicates(array);
+        answer65.innerHTML = `<pre>Array without duplicates:\n\n\n${JSON.stringify(uniqueArray)}</pre>`;
+    } else {
+        answer65.innerText = 'Please enter a valid array in JSON format';
+    }
+});
+
+function isValidArray(array) {
+    try {
+        array = JSON.parse(array);
+        return Array.isArray(array);
+    } catch (e) {
+        return false;
+    }
+}
+
+function removeDuplicates(array) {
+    const lowerCaseSet = new Set();
+    return array.filter(item => {
+        const lowerCaseItem = typeof item === 'string' ? item.toLowerCase() : item;
+        if (!lowerCaseSet.has(lowerCaseItem)) {
+            lowerCaseSet.add(lowerCaseItem);
+            return true;
+        }
+        return false;
+    });
+}
+
+const form66 = document.getElementById('form-66');
+const answer66 = document.getElementById('answer-66');
+
+form66.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+    const ordinals = ["th", "st", "nd", "rd"];
+
+    const result = colors.map((color, index) => {
+        let ord;
+        const pos = index + 1;
+        if (pos % 10 === 1 && pos !== 11) {
+            ord = "st";
+        } else if (pos % 10 === 2 && pos !== 12) {
+            ord = "nd";
+        } else if (pos % 10 === 3 && pos !== 13) {
+            ord = "rd";
+        } else {
+            ord = "th";
+        }
+        return `${pos}${ord} choice is ${color}.`;
+    }).join('\n');
+
+    answer66.textContent = result;
+});
+
+const form67 = document.getElementById('form-67');
+const answer67 = document.getElementById('answer-67');
+
+form67.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const startYear = parseInt(document.getElementById('start-year').value);
+    const endYear = parseInt(document.getElementById('end-year').value);
+
+    if (isNaN(startYear) || isNaN(endYear)) {
+        answer67.textContent = "Please enter valid years.";
+        return;
+    }
+
+    const leapYears = findLeapYears(startYear, endYear);
+    answer67.textContent = `Leap years between ${startYear} and ${endYear} are:\n${leapYears.join(', ')}`;
+});
+
+function findLeapYears(startYear, endYear) {
+    const leapYears = [];
+    for (let year = startYear; year <= endYear; year++) {
+        if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+            leapYears.push(year);
+        }
+    }
+    return leapYears;
+}
+
+const form68 = document.getElementById('form-68');
+const inputArray68 = document.getElementById('input-array-68');
+const answer68 = document.getElementById('answer-68');
+
+form68.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const arrayString = inputArray68.value.trim();
+    if (!arrayString) {
+        answer68.textContent = "Please enter an array.";
+        return;
+    }
+
+    const originalArray = arrayString.split(',').map(item => item.trim());
+    if (originalArray.length === 0 || (originalArray.length === 1 && originalArray[0] === "")) {
+        answer68.textContent = "Please enter valid array elements.";
+        return;
+    }
+
+    const shuffledArray = shuffleArray(originalArray);
+
+    answer68.textContent = `Original Array: [${originalArray.join(', ')}]\nShuffled Array: [${shuffledArray.join(', ')}]`;
+});
+
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+const form69 = document.getElementById('form-69');
+const inputArray1 = document.getElementById('input-array1');
+const inputArray2 = document.getElementById('input-array2');
+const answer69 = document.getElementById('answer-69');
+
+form69.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const array1String = inputArray1.value.trim();
+    const array2String = inputArray2.value.trim();
+
+    if (!array1String || !array2String) {
+        answer69.textContent = "Please enter both arrays.";
+        return;
+    }
+
+    const array1 = array1String.split(',').map(item => parseInt(item.trim(), 10));
+    const array2 = array2String.split(',').map(item => parseInt(item.trim(), 10));
+
+    if (array1.length !== array2.length) {
+        answer69.textContent = "Arrays must have the same length.";
+        return;
+    }
+
+    const sumArray = computeSumOfArrays(array1, array2);
+
+    answer69.textContent = `Array1: [${array1.join(', ')}]\nArray2: [${array2.join(', ')}]\nSum Array: [${sumArray.join(', ')}]`;
+});
+
+function computeSumOfArrays(arr1, arr2) {
+    const sumArray = [];
+    for (let i = 0; i < arr1.length; i++) {
+        sumArray.push(arr1[i] + arr2[i]);
+    }
+    return sumArray;
+}
+
+const form70 = document.getElementById('form-70');
+const inputArray70 = document.getElementById('input-array-70');
+const inputShallow = document.getElementById('input-shallow');
+const answer70 = document.getElementById('answer-70');
+
+form70.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const arrayString = inputArray70.value.trim();
+    console.log(arrayString);
+    if (!arrayString) {
+        answer70.textContent = "Please enter an array.";
+        return;
+    }
+
+    let array;
+    console.log(
+        JSON.parse(arrayString), "i"
+
+    )
+    try {
+        array = JSON.parse(arrayString);
+        if (!Array.isArray(array)) {
+            throw new Error("Input is not a valid array.");
+        }
+    } catch (error) {
+        answer70.textContent = "Please enter a valid array.";
+        return;
+    }
+
+    const shallow = inputShallow.checked;
+    const flattenedArray = array.flat(Infinity);
+
+    answer70.textContent = `Original Array: ${JSON.stringify(array)}\nFlattened Array: ${JSON.stringify(flattenedArray)}`;
+});
+
+const form71 = document.getElementById('form-71');
+const inputArray171 = document.getElementById('input-array171');
+const inputArray271 = document.getElementById('input-array271');
+const answer71 = document.getElementById('answer-71');
+
+form71.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const array1String = inputArray171.value.trim();
+    const array2String = inputArray271.value.trim();
+
+    if (!array1String || !array2String) {
+        answer71.textContent = "Please enter both arrays.";
+        return;
+    }
+
+    let array1, array2;
+    try {
+        array1 = JSON.parse(`[${array1String}]`);
+        array2 = JSON.parse(`[${array2String}]`);
+        if (!Array.isArray(array1) || !Array.isArray(array2)) {
+            throw new Error("Input is not a valid array.");
+        }
+    } catch (error) {
+        answer71.textContent = "Please enter valid arrays.";
+        return;
+    }
+
+    const unionArray = computeUnion(array1, array2);
+
+    answer71.textContent = `Array 1: [${array1.join(', ')}]\nArray 2: [${array2.join(', ')}]\nUnion: [${unionArray.join(', ')}]`;
+});
+
+function computeUnion(arr1, arr2) {
+    const set = new Set([...arr1, ...arr2]);
+    return Array.from(set);
+}
+
+const form72 = document.getElementById('form-72');
+const inputArray72 = document.getElementById('input-array-72');
+const answer72 = document.getElementById('answer-72');
+
+form72.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const arrayString = inputArray72.value.trim();
+
+    if (!arrayString) {
+        answer72.textContent = "Please enter an array.";
+        return;
+    }
+    console.log(
+        JSON.parse(arrayString)
+
+    );
+
+    let array;
+    try {
+        array = JSON.parse(arrayString);
+        if (!Array.isArray(array)) {
+            throw new Error("Input is not a valid array.");
+        }
+    } catch (error) {
+        answer72.textContent = "Please enter valid array elements.";
+        return;
+    }
+
+    const filteredArray = removeFalsyValues(array);
+
+    answer72.textContent = `Original Array: [${array.join(', ')}]\nFiltered Array: [${filteredArray.join(', ')}]`;
+});
+
+function removeFalsyValues(arr) {
+    return arr.filter(item => {
+        return (
+            item !== null &&
+            item !== 0 &&
+            item !== "" &&
+            item !== false &&
+            item !== undefined &&
+            !(typeof item === 'number' && isNaN(item))
+        );
+    });
+}
+
+
+
+const form75 = document.getElementById('form-75');
+const inputNumbers75 = document.getElementById('input-numbers75');
+const inputTarget = document.getElementById('input-target');
+const answer75 = document.getElementById('answer-75');
+
+form75.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Get input values
+    const numbersInput = inputNumbers75.value.trim();
+    const target = Number(inputTarget.value.trim());
+
+    // Convert input string to array of numbers
+    const numbers = numbersInput.split(',').map(num => parseInt(num.trim()));
+
+    // Function to find all pairs of indices with given target sum
+    const findAllPairs = (nums, target) => {
+        const pairs = [];
+        const map = new Map();
+        for (let i = 0; i < nums.length; i++) {
+            const complement = target - nums[i];
+            if (map.has(complement)) {
+                map.get(complement).forEach(index => {
+                    pairs.push([index, i]);
+                });
+            }
+            if (!map.has(nums[i])) {
+                map.set(nums[i], []);
+            }
+            map.get(nums[i]).push(i);
+        }
+        return pairs;
+    };
+
+    // Find all pairs of indices with target sum
+    const pairs = findAllPairs(numbers, target);
+
+    // Display result
+    if (pairs.length > 0) {
+        const resultString = pairs.map(pair => `[${pair.join(', ')}]`).join(', ');
+        answer75.textContent = `Pairs of indices with the target sum ${target}: ${resultString}`;
+    } else {
+        answer75.textContent = `No pairs found with the target sum ${target}`;
+    }
+});
+
+function num_string_range(start, end, step) {
+    const result = [];
+    if (typeof start === 'string' && typeof end === 'string' && start.length === 1 && end.length === 1) {
+        start = start.charCodeAt(0);
+        end = end.charCodeAt(0);
+        for (let i = start; i <= end; i += step) {
+            result.push(String.fromCharCode(i));
+        }
+    } else if (typeof start === 'number' && typeof end === 'number') {
+        for (let i = start; i <= end; i += step) {
+            result.push(i);
+        }
+    }
+    return result;
+}
+
+const form76 = document.getElementById('form-range-76');
+const resultDiv = document.getElementById('answer-76');
+
+form76.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const startValue = document.getElementById('start76').value.trim();
+    const endValue = document.getElementById('end76').value.trim();
+    const stepValue = parseInt(document.getElementById('step76').value);
+
+    if (isNaN(stepValue) || stepValue <= 0) {
+        resultDiv.textContent = "Step value must be a positive number.";
+        return;
+    }
+
+    const result = num_string_range(startValue, endValue, stepValue);
+    resultDiv.innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+});
+
+const form77 = document.getElementById('form-77');
+const inputArray77 = document.getElementById('input-array-77');
+const elementToRemove = document.getElementById('element-to-remove');
+const answer77 = document.getElementById('answer-77');
+
+form77.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const arrayString = inputArray77.value.trim();
+    const element = elementToRemove.value.trim();
+
+    if (!arrayString) {
+        answer77.textContent = "Please enter an array.";
+        return;
+    }
+
+    let array = arrayString.split(',').map(item => item.trim());
+
+    if (!element) {
+        answer77.textContent = "Please enter an element to remove.";
+        return;
+    }
+
+    array = removeElementFromArray(array, element);
+
+    answer77.textContent = `Updated Array: [${array.join(', ')}]`;
+});
+
+function removeElementFromArray(array, element) {
+    return array.filter(item => item !== element);
+}
+const form78 = document.getElementById('form-78');
+const inputArray78 = document.getElementById('input-array-78');
+const nthLargest = document.getElementById('nth-largest');
+const answer78 = document.getElementById('answer-78');
+
+form78.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const arrayString = inputArray78.value.trim();
+    const n = parseInt(nthLargest.value.trim());
+
+    if (!arrayString) {
+        answer78.textContent = "Please enter an array.";
+        return;
+    }
+
+    if (isNaN(n) || n <= 0) {
+        answer78.textContent = "Please enter a valid number for n.";
+        return;
+    }
+
+    let array = arrayString.split(',').map(item => parseInt(item.trim()));
+
+    if (array.some(isNaN)) {
+        answer78.textContent = "Please enter valid numeric array elements.";
+        return;
+    }
+
+    const result = nthLargestElement(array, n);
+
+    answer78.textContent = `The ${n}th largest element is: ${result}`;
+});
+
+function nthLargestElement(array, n) {
+    array.sort((a, b) => b - a);
+    return array[n - 1];
+}
+
+const form79 = document.getElementById('form-79');
+const inputArray79 = document.getElementById('input-array-79');
+const inputFrom79 = document.getElementById('input-from-79');
+const inputTo79 = document.getElementById('input-to-79');
+const answer79 = document.getElementById('answer-79');
+
+form79.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const arrayString = inputArray79.value.trim();
+    const fromIndex = parseInt(inputFrom79.value);
+    const toIndex = parseInt(inputTo79.value);
+
+    if (!arrayString) {
+        answer79.textContent = "Please enter an array.";
+        return;
+    }
+
+    let originalArray = arrayString.split(',').map(item => item.trim());
+    if (originalArray.length === 0 || (originalArray.length === 1 && originalArray[0] === "")) {
+        answer79.textContent = "Please enter valid array elements.";
+        return;
+    }
+
+    if (isNaN(fromIndex) || isNaN(toIndex) || fromIndex < 0 || toIndex < 0 || fromIndex >= originalArray.length || toIndex >= originalArray.length) {
+        answer79.textContent = "Invalid from/to index. Please enter valid indices.";
+        return;
+    }
+
+    const movedArray = moveElement(originalArray, fromIndex, toIndex);
+
+    answer79.textContent = `Original Array: [${originalArray.join(', ')}]\nMoved Array: [${movedArray.join(', ')}]`;
+});
+
+function moveElement(array, fromIndex, toIndex) {
+    const movedArray = [...array];
+    const element = movedArray.splice(fromIndex, 1)[0];
+    movedArray.splice(toIndex, 0, element);
+    return movedArray;
+}
