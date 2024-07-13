@@ -1232,7 +1232,455 @@ console.log(move([10, 20, 30, 40, 50], -1, -2)); [10, 20, 30, 50, 40]
     </section>
 
     <section>
-        
+        <div>
+            <h3 id="question-80">
+                Write a JavaScript function to check whether an `input` is a date object or not.
+            </h3>
+            <pre>
+        Test Data :
+        console.log(is_date("October 13, 2014 11:13:00"));
+        false
+        console.log(is_date(new Date(86400000)));
+        true
+        console.log(is_date(new Date(99,5,24,11,33,30,0))); 
+        true
+        console.log(is_date([1, 2, 4, 0]));
+        false
+            </pre>
+            <form id="form-80">
+                <label for="input-date">Enter a value:</label>
+                <input type="text" id="input-date-80" placeholder="Enter a value">
+                <button type="submit">Check</button>
+            </form>
+            <pre class="answer" id="answer-80"></pre>
+        </div>
+        <div>
+            <h3 id="question-81">
+                Write a JavaScript function to get the current date. Note: Pass a separator as an argument.
+            </h3>
+            <pre>
+Test Data :
+console.log(curday('/'));
+"11/13/2014"
+console.log(curday('-')); 
+"11-13-2014"
+    </pre>
+            <form id="form-81">
+                <label for="input-separator">Enter a separator:</label>
+                <input type="text" id="input-separator-81" placeholder="Enter a separator">
+                <button type="submit">Get Current Date</button>
+            </form>
+            <pre class="answer" id="answer-81"></pre>
+        </div>
+
+        <div>
+            <h3 id="question-82">
+                Write a JavaScript function to get the number of days in a month.
+            </h3>
+            <pre>
+        Test Data :
+        console.log(getDaysInMonth(1, 2012));
+        31
+        console.log(getDaysInMonth(2, 2012));
+        29
+        console.log(getDaysInMonth(9, 2012));
+        30
+        console.log(getDaysInMonth(12, 2012));
+        31
+            </pre>
+            <form id="form-82">
+                <label for="input-month">Enter month (1-12):</label>
+                <input type="number" id="input-month-82" placeholder="Month" min="1" max="12">
+                <label for="input-year">Enter year:</label>
+                <input type="number" id="input-year-82" placeholder="Year">
+                <button type="submit">Get Days in Month</button>
+            </form>
+            <pre class="answer" id="answer-82"></pre>
+        </div>
+
+        <div>
+            <h3 id="question-83">
+                Write a JavaScript function to get the month name from a particular date.
+            </h3>
+            <pre>
+        Test Data :
+        console.log(month_name(new Date("10/11/2009")));
+        Output : "October"
+        console.log(month_name(new Date("11/13/2014")));
+        Output : "November"
+            </pre>
+            <form id="form-83">
+                <label for="input-date-83">Enter date (MM/DD/YYYY):</label>
+                <input type="text" id="input-date-83" placeholder="MM/DD/YYYY">
+                <button type="submit">Get Month Name</button>
+            </form>
+            <pre class="answer" id="answer-83"></pre>
+        </div>
+
+        <div>
+            <h3 id="question-84">
+                Write a JavaScript function to compare dates (i.e. greater than, less than, or equal to).
+            </h3>
+            <pre>
+        Test Data :
+        console.log(compare_dates(new Date('11/14/2013 00:00'), new Date('11/14/2013 00:00')));
+        Output : "Date1 = Date2"
+        console.log(compare_dates(new Date('11/14/2013 00:01'), new Date('11/14/2013 00:00')));
+        Output : "Date1 > Date2"
+        console.log(compare_dates(new Date('11/14/2013 00:00'), new Date('11/14/2013 00:01')));
+        Output : "Date2 > Date1"
+            </pre>
+            <form id="form-84">
+                <label for="input-date1-84">Enter first date (MM/DD/YYYY HH:MM):</label>
+                <input type="text" id="input-date1-84" placeholder="MM/DD/YYYY HH:MM">
+                <label for="input-date2-84">Enter second date (MM/DD/YYYY HH:MM):</label>
+                <input type="text" id="input-date2-84" placeholder="MM/DD/YYYY HH:MM">
+                <button type="submit">Compare Dates</button>
+            </form>
+            <pre class="answer" id="answer-84"></pre>
+        </div>
+        <div>
+            <h3 id="question-85">
+                Write a JavaScript function to add specified minutes to a Date object.
+            </h3>
+            <pre>
+            Test Data :
+            console.log(add_minutes(new Date(2014,10,2), 30).toString());
+            Output :
+            "Sun Nov 02 2014 00:30:00 GMT+0530 (India Standard Time)"
+                </pre>
+            <form id="form-85">
+                <label for="input-date-85">Enter date (YYYY-MM-DD HH:MM):</label>
+                <input type="text" id="input-date-85" placeholder="YYYY-MM-DD HH:MM">
+                <label for="input-minutes">Enter minutes to add:</label>
+                <input type="number" id="input-minutes-85" placeholder="Minutes">
+                <button type="submit">Add Minutes</button>
+            </form>
+            <pre class="answer" id="answer-85"></pre>
+        </div>
+        <div>
+            <h3 id="question-86">
+                Write a JavaScript function to test whether a date is a weekend.
+            </h3>
+            <pre>
+            Test Data :
+            console.log(is_weekend('Nov 15, 2014'));
+            Output : "weekend"
+            console.log(is_weekend('Nov 16, 2014'));
+            Output : "weekend"
+            console.log(is_weekend('Nov 17, 2014'));
+            Output : ""
+                </pre>
+            <form id="form-86">
+                <label for="input-date-86">Enter date (MM DD, YYYY):</label>
+                <input type="text" id="input-date-86" placeholder="MM DD, YYYY">
+                <button type="submit">Check Weekend</button>
+            </form>
+            <pre class="answer" id="answer-86"></pre>
+        </div>
+
+        <div>
+            <h3 id="question-87">
+                Write a JavaScript function to get difference between two dates in days.
+            </h3>
+            <pre>
+        Test Data :
+        console.log(date_diff_indays('04/02/2014', '11/04/2014'));
+        Output : 216
+        console.log(date_diff_indays('12/02/2014', '11/04/2014'));
+        Output : -28
+            </pre>
+            <form id="form-87">
+                <label for="input-date1-87">Enter first date (MM/DD/YYYY):</label>
+                <input type="text" id="input-date1-87" placeholder="MM/DD/YYYY">
+                <label for="input-date2-87">Enter second date (MM/DD/YYYY):</label>
+                <input type="text" id="input-date2-87" placeholder="MM/DD/YYYY">
+                <button type="submit">Calculate Difference</button>
+            </form>
+            <pre class="answer" id="answer-87"></pre>
+        </div>
+        <div>
+            <h3 id="question-88">
+                Write a JavaScript function to get the last day of a month.
+            </h3>
+            <pre>
+            Test Data :
+            console.log(lastday(2014, 0));
+            Output : 31
+            console.log(lastday(2014, 1));
+            Output : 28
+            console.log(lastday(2014, 11));
+            Output : 31
+                </pre>
+            <form id="form-88">
+                <label for="input-year-88">Enter year:</label>
+                <input type="number" id="input-year-88" placeholder="Year">
+                <label for="input-month-88">Enter month index (0-11):</label>
+                <input type="number" id="input-month-88" placeholder="Month index">
+                <button type="submit">Get Last Day of Month</button>
+            </form>
+            <pre class="answer" id="answer-88"></pre>
+        </div>
+        <div>
+            <h3 id="question-89">
+                Write a JavaScript function to get the maximum date from an array of dates.
+            </h3>
+            <pre>
+            Test Data :
+            console.log(max_date(['2015/02/01', '2015/02/02', '2015/01/03']));
+            Output : "2015/02/02"
+                </pre>
+            <form id="form-89">
+                <label for="input-dates-89">Enter dates (comma-separated):</label>
+                <input type="text" id="input-dates-89" placeholder="YYYY/MM/DD, YYYY/MM/DD, ...">
+                <button type="submit">Get Maximum Date</button>
+            </form>
+            <pre class="answer" id="answer-89"></pre>
+        </div>
+        <div>
+            <h3 id="question-90">
+                Write a JavaScript function to count the number of days passed since the beginning of the year.
+            </h3>
+            <pre>
+Test Data :
+console.log(days_passed(new Date(2015, 0, 15)));
+Output : 15
+console.log(days_passed(new Date(2015, 11, 14)));
+Output : 348
+    </pre>
+            <form id="form-90">
+                <label for="input-date-90">Enter a date:</label>
+                <input type="date" id="input-date-90">
+                <button type="submit">Count Days Passed</button>
+            </form>
+            <pre class="answer" id="answer-90"></pre>
+        </div>
+        <div>
+            <h3 id="question-91">
+                Write a JavaScript program to calculate age.
+            </h3>
+            <pre>
+        Test Data :
+        console.log(calculate_age(new Date(1982, 11, 4)));
+        Output : 32
+        console.log(calculate_age(new Date(1962, 1, 1)));
+        Output : 53
+            </pre>
+            <form id="form-91">
+                <label for="input-dob-91">Enter date of birth:</label>
+                <input type="date" id="input-dob-91">
+                <button type="submit">Calculate Age</button>
+            </form>
+            <pre class="answer" id="answer-91"></pre>
+        </div>
+
+        <div>
+            <h3>JavaScript Date Functions</h3>
+            <div id="question-92">
+                <h4> Get the day of the month, 2 digits with leading zeros.</h4>
+                <pre>
+        Test Data :
+        d = new Date(2015, 10, 1);
+        console.log(day_of_the_month(d)); // "01"
+                    </pre>
+                <form id="form-92">
+                    <label for="input-date-92">Enter date (YYYY-MM-DD):</label>
+                    <input type="date" id="input-date-92">
+                    <button type="submit">Get Day of the Month</button>
+                </form>
+                <p id="answer-92"></p>
+            </div>
+
+            <div id="question-93">
+                <h4> Get a textual representation of a day (three letters, Mon through Sun).</h4>
+                <pre>
+        Test Data :
+        dt = new Date(2015, 10, 1);
+        console.log(short_Days(dt)); // "Sun"
+                    </pre>
+                <form id="form-93">
+                    <label for="input-date-93">Enter date (YYYY-MM-DD):</label>
+                    <input type="date" id="input-date-93">
+                    <button type="submit">Get Short Day</button>
+                </form>
+                <p id="answer-93"></p>
+            </div>
+
+            <div id="question-94">
+                <h4> Get a full textual representation of the day of the week (Sunday through Saturday).</h4>
+                <pre>
+        Test Data :
+        dt = new Date(2015, 10, 1);
+        console.log(long_Days(dt)); // "Sunday"
+                    </pre>
+                <form id="form-94">
+                    <label for="input-date-94">Enter date (YYYY-MM-DD):</label>
+                    <input type="date" id="input-date-94">
+                    <button type="submit">Get Long Day</button>
+                </form>
+                <p id="answer-94"></p>
+            </div>
+
+            <div id="question-95">
+                <h4> Get ISO-8601 numeric representation of the day of the week (1 (for Monday) to 7 (for Sunday)).
+                </h4>
+                <pre>
+        Test Data :
+        dt = new Date(2015, 10, 1);
+        console.log(ISO_numeric_date(dt)); // 7
+                    </pre>
+                <form id="form-95">
+                    <label for="input-date-95">Enter date (YYYY-MM-DD):</label>
+                    <input type="date" id="input-date-95">
+                    <button type="submit">Get ISO Numeric Day</button>
+                </form>
+                <p id="answer-95"></p>
+            </div>
+        </div>
+        <div id="question-96">
+            <h4> Get English ordinal suffix for the day of the month, 2 characters (st, nd, rd or th).</h4>
+            <pre>
+        Test Data :
+        dt = new Date(2015, 10, 1);
+        console.log(english_ordinal_suffix(dt)); // "1st"
+                    </pre>
+            <form id="form-96">
+                <label for="input-date-96">Enter date (YYYY-MM-DD):</label>
+                <input type="date" id="input-date-96">
+                <button type="submit">Get Ordinal Suffix</button>
+            </form>
+            <p id="answer-96"></p>
+        </div>
+
+        <div id="question-97">
+            <h4>Get ISO-8601 week number of year, weeks starting on Monday.</h4>
+            <pre>
+        Test Data :
+        dt = new Date(2015, 10, 1);
+        console.log(ISO8601_week_no(dt)); // 44
+                    </pre>
+            <form id="form-97">
+                <label for="input-date-97">Enter date (YYYY-MM-DD):</label>
+                <input type="date" id="input-date-97">
+                <button type="submit">Get Week Number</button>
+            </form>
+            <p id="answer-97"></p>
+        </div>
+
+        <div id="question-98">
+            <h4>Get a full textual representation of a month, such as January or June.</h4>
+            <pre>
+        Test Data :
+        dt = new Date(2015, 10, 1);
+        console.log(full_month(dt)); // "November"
+                    </pre>
+            <form id="form-98">
+                <label for="input-date-98">Enter date (YYYY-MM-DD):</label>
+                <input type="date" id="input-date-98">
+                <button type="submit">Get Full Month</button>
+            </form>
+            <p id="answer-98"></p>
+        </div>
+
+        <div id="question-99">
+            <h4> Get a numeric representation of a month, with leading zeros (01 through 12).</h4>
+            <pre>
+        Test Data :
+        dt = new Date(2015, 10, 1);
+        console.log(numeric_month(dt)); // "11"
+                    </pre>
+            <form id="form-99">
+                <label for="input-date-99">Enter date (YYYY-MM-DD):</label>
+                <input type="date" id="input-date-99">
+                <button type="submit">Get Numeric Month</button>
+            </form>
+            <p id="answer-99"></p>
+        </div>
+
+        <div id="question-100">
+            <h4>Get a short textual representation of a month, three letters (Jan through Dec).</h4>
+            <pre>
+        Test Data :
+        dt = new Date(2015, 10, 1);
+        console.log(short_months(dt)); // "Nov"
+                    </pre>
+            <form id="form-100">
+                <label for="input-date-100">Enter date (YYYY-MM-DD):</label>
+                <input type="date" id="input-date-100">
+                <button type="submit">Get Short Month</button>
+            </form>
+            <p id="answer-100"></p>
+        </div>
+
+        <div id="question-101">
+            <h4>Get a full numeric representation of a year (4 digits).</h4>
+            <pre>
+        Test Data :
+        dt = new Date(2015, 10, 1);
+        console.log(full_year(dt)); // 2015
+                    </pre>
+            <form id="form-101">
+                <label for="input-date-101">Enter date (YYYY-MM-DD):</label>
+                <input type="date" id="input-date-101">
+                <button type="submit">Get Full Year</button>
+            </form>
+            <p id="answer-101"></p>
+        </div>
+
+        <div id="question-102">
+            <h4>Get a two digit representation of a year. Examples: 79 or 04.</h4>
+            <pre>
+        Test Data :
+        dt = new Date(1989, 10, 1);
+        console.log(short_year(dt)); // "89"
+                    </pre>
+            <form id="form-102">
+                <label for="input-date-102">Enter date (YYYY-MM-DD):</label>
+                <input type="date" id="input-date-102">
+                <button type="submit">Get Short Year</button>
+            </form>
+            <p id="answer-102"></p>
+        </div>
+        </div>
+
+        <div id="question-107">
+            <h4>Get Timezone.</h4>
+            <pre>
+Test Data :
+dt = new Date();
+console.log(timezone(dt)); // "India Standard Time"
+            </pre>
+            <button id="btn-107">Get Timezone</button>
+            <p id="answer-107"></p>
+        </div>
+
+
+
+
+        <!DOCTYPE html>
+        <html>
+
+        <head>
+            <title>Draw a Rectangle</title>
+            <style>
+            </style>
+        </head>
+
+        <body>
+            <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+                Your browser does not support the HTML Canvas Element.
+            </canvas>
+            <script>
+                var canvas = document.getElementById("myCanvas");
+                var ctx = canvas.getContext("2d");
+                ctx.fillStyle = "#FF0000";
+                ctx.fillRect(20, 20, 150);
+            </script>
+        </body>
+
+        </html>
+
+
     </section>
 
 

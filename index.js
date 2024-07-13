@@ -2152,3 +2152,372 @@ function moveElement(array, fromIndex, toIndex) {
     movedArray.splice(toIndex, 0, element);
     return movedArray;
 }
+
+
+const form80 = document.getElementById('form-80');
+const inputDate80 = document.getElementById('input-date-80');
+const answer80 = document.getElementById('answer-80');
+
+form80.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const inputValue = inputDate80.value.trim();
+
+    let parsedValue;
+    try {
+        console.log(parsedValue)// Use eval to parse the input as a Date or other value
+
+        parsedValue = eval(inputValue);
+        console.log(parsedValue)// Use eval to parse the input as a Date or other value
+    } catch {
+        answer80.textContent = "Invalid input.";
+        return;
+    }
+
+    const isDate = is_date(parsedValue);
+
+    answer80.textContent = `Input: ${inputValue}\nIs Date Object: ${isDate}`;
+});
+
+function is_date(input) {
+    return Object.prototype.toString.call(input) === '[object Date]' && !isNaN(input.getTime());
+}
+const form81 = document.getElementById('form-81');
+const inputSeparator81 = document.getElementById('input-separator-81');
+const answer81 = document.getElementById('answer-81');
+
+form81.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const separator = inputSeparator81.value.trim();
+    if (!separator) {
+        answer81.textContent = "Please enter a separator.";
+        return;
+    }
+
+    const currentDate = curday(separator);
+
+    answer81.textContent = `Current Date: ${currentDate}`;
+});
+
+function curday(separator) {
+    const date = new Date();
+
+    console.log(date,)
+    const day = String(date.getDate()).padStart(2, '0');
+
+    console.log(day)
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+
+    return `${month}${separator}${day}${separator}${year}`;
+}
+
+const form82 = document.getElementById('form-82');
+const inputMonth82 = document.getElementById('input-month-82');
+const inputYear82 = document.getElementById('input-year-82');
+const answer82 = document.getElementById('answer-82');
+
+form82.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const month = parseInt(inputMonth82.value);
+    const year = parseInt(inputYear82.value);
+
+    if (isNaN(month) || isNaN(year) || month < 1 || month > 12) {
+        answer82.textContent = "Please enter a valid month (1-12) and year.";
+        return;
+    }
+
+    const daysInMonth = getDaysInMonth(month, year);
+
+    answer82.textContent = `Month: ${month}, Year: ${year}\nDays in Month: ${daysInMonth}`;
+});
+
+function getDaysInMonth(month, year) {
+    return new Date(year, month, 0).getDate();
+}
+
+const form83 = document.getElementById('form-83');
+const inputDate83 = document.getElementById('input-date-83');
+const answer83 = document.getElementById('answer-83');
+
+form83.addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    const dateString = inputDate83.value.trim(); // Get the date input
+    const date = new Date(dateString);
+
+    // Validate the date
+    if (isNaN(date.getTime())) {
+        answer83.textContent = "Please enter a valid date (MM/DD/YYYY).";
+        return;
+    }
+
+    // Get the month name
+    const monthName = month_name(date);
+
+    // Display the result
+    answer83.textContent = `Date: ${dateString}\nMonth Name: ${monthName}`;
+});
+
+// Function to get the month name from a date
+function month_name(date) {
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    return monthNames[date.getMonth()];
+}
+
+const form84 = document.getElementById('form-84');
+const inputDate1_84 = document.getElementById('input-date1-84');
+const inputDate2_84 = document.getElementById('input-date2-84');
+const answer84 = document.getElementById('answer-84');
+
+form84.addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    const date1String = inputDate1_84.value.trim();
+    const date2String = inputDate2_84.value.trim();
+    const date1 = new Date(date1String);
+    const date2 = new Date(date2String);
+
+    // Validate the dates
+    if (isNaN(date1.getTime()) || isNaN(date2.getTime())) {
+        answer84.textContent = "Please enter valid dates (MM/DD/YYYY HH:MM).";
+        return;
+    }
+
+    // Compare the dates
+    const comparison = compare_dates(date1, date2);
+
+    // Display the result
+    answer84.textContent = `Date1: ${date1String}\nDate2: ${date2String}\nComparison: ${comparison}`;
+});
+
+// Function to compare dates
+function compare_dates(date1, date2) {
+    if (date1.getTime() === date2.getTime()) {
+        return "Date1 = Date2";
+    } else if (date1.getTime() > date2.getTime()) {
+        return "Date1 > Date2";
+    } else {
+        return "Date2 > Date1";
+    }
+}
+const form85 = document.getElementById('form-85');
+const inputDate85 = document.getElementById('input-date-85');
+const inputMinutes85 = document.getElementById('input-minutes-85');
+const answer85 = document.getElementById('answer-85');
+
+form85.addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    const dateString = inputDate85.value.trim();
+    const minutesToAdd = parseInt(inputMinutes85.value);
+
+    // Validate the inputs
+    if (!dateString || isNaN(minutesToAdd)) {
+        answer85.textContent = "Please enter valid date and minutes.";
+        return;
+    }
+
+    const originalDate = new Date(dateString);
+    if (isNaN(originalDate.getTime())) {
+        answer85.textContent = "Please enter a valid date in YYYY-MM-DD HH:MM format.";
+        return;
+    }
+
+    // Add minutes to the date
+    const newDate = add_minutes(originalDate, minutesToAdd);
+
+    // Display the result
+    answer85.textContent = `Original Date: ${originalDate.toString()}\nNew Date after adding ${minutesToAdd} minutes: ${newDate.toString()}`;
+});
+
+// Function to add minutes to a Date object
+function add_minutes(date, minutes) {
+    return new Date(date.getTime() + minutes * 60000);
+}
+
+
+const form86 = document.getElementById('form-86');
+const inputDate86 = document.getElementById('input-date-86');
+const answer86 = document.getElementById('answer-86');
+
+form86.addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    const dateString = inputDate86.value.trim();
+    console.log(dateString);
+
+
+    if (!dateString) {
+        answer86.textContent = "Please enter a valid date (MMM DD, YYYY).";
+        return;
+    }
+
+
+    const result = is_weekend(dateString);
+
+
+    answer86.textContent = `Date: ${dateString}\nResult: ${result}`;
+});
+
+
+function is_weekend(dateString) {
+
+    let date = new Date(`${dateString}`);
+
+    const dayOfWeek = date.getDay();
+
+
+    if (dayOfWeek === 6 || dayOfWeek === 0) {
+        return "weekend";
+    } else {
+        return "Weekday";
+    }
+}
+
+// Function 96: Get English ordinal suffix for the day of the month, 2 characters (st, nd, rd or th).
+function english_ordinal_suffix(date) {
+    const dayOfMonth = date.getDate();
+    const suffixes = ['th', 'st', 'nd', 'rd'];
+    const relevantDigits = (dayOfMonth < 30) ? dayOfMonth % 20 : dayOfMonth % 30;
+    const suffix = (relevantDigits <= 3) ? suffixes[relevantDigits] : suffixes[0];
+    return dayOfMonth + suffix;
+}
+
+// Function 97: Get ISO-8601 week number of year, weeks starting on Monday.
+function ISO8601_week_no(date) {
+    const startOfYear = new Date(date.getFullYear(), 0, 1);
+    const diff = (date.getTime() - startOfYear.getTime()) / 86400000;
+    return Math.ceil((diff + startOfYear.getDay() + 1) / 7);
+}
+
+// Function 98: Get a full textual representation of a month, such as January or June.
+function full_month(date) {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+        'August', 'September', 'October', 'November', 'December'];
+    return months[date.getMonth()];
+}
+
+// Function 99: Get a numeric representation of a month, with leading zeros (01 through 12).
+function numeric_month(date) {
+    return (date.getMonth() + 1).toString().padStart(2, '0');
+}
+
+// Function 100: Get a short textual representation of a month, three letters (Jan through Dec).
+function short_months(date) {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return months[date.getMonth()];
+}
+
+// Function 101: Get a full numeric representation of a year (4 digits).
+function full_year(date) {
+    return date.getFullYear();
+}
+
+// Function 102: Get a two digit representation of a year. Examples: 79 or 04.
+function short_year(date) {
+    return date.getFullYear().toString().slice(-2);
+}
+
+// Add event listeners to forms
+document.getElementById('form-96').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const inputDate = new Date(document.getElementById('input-date-96').value);
+    document.getElementById('answer-96').textContent = english_ordinal_suffix(inputDate);
+});
+
+document.getElementById('form-97').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const inputDate = new Date(document.getElementById('input-date-97').value);
+    document.getElementById('answer-97').textContent = ISO8601_week_no(inputDate);
+});
+
+document.getElementById('form-98').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const inputDate = new Date(document.getElementById('input-date-98').value);
+    document.getElementById('answer-98').textContent = full_month(inputDate);
+});
+
+document.getElementById('form-99').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const inputDate = new Date(document.getElementById('input-date-99').value);
+    document.getElementById('answer-99').textContent = numeric_month(inputDate);
+});
+
+document.getElementById('form-100').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const inputDate = new Date(document.getElementById('input-date-100').value);
+    document.getElementById('answer-100').textContent = short_months(inputDate);
+});
+
+document.getElementById('form-101').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const inputDate = new Date(document.getElementById('input-date-101').value);
+    document.getElementById('answer-101').textContent = full_year(inputDate);
+});
+
+document.getElementById('form-102').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const inputDate = new Date(document.getElementById('input-date-102').value);
+    document.getElementById('answer-102').textContent = short_year(inputDate);
+});
+// Function 103: Get 12-hour format of an hour with leading zeros.
+function hours_with_zeroes(date) {
+    return date.toLocaleString('en-US', { hour: 'numeric', hour12: true }).padStart(2, '0');
+}
+
+// Function 104: Get 24-hour format of an hour without leading zeros.
+function hours_without_zeroes(date) {
+    return date.getHours();
+}
+
+// Function 105: Get minutes with leading zeros (00 to 59).
+function minutes_with_leading_zeros(date) {
+    return date.getMinutes().toString().padStart(2, '0');
+}
+
+// Function 106: Get seconds with leading zeros (00 through 59).
+function seconds_with_leading_zeros(date) {
+    return date.getSeconds().toString().padStart(2, '0');
+}
+
+// Function 107: Get Timezone.
+function timezone(date) {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone;
+}
+
+// Function 38: Find whether or not the date is in daylight savings time.
+function daylights_savings(date) {
+    return Number(date.getTimezoneOffset() < date.stdTimezoneOffset());
+}
+
+// Add event listeners to forms and buttons
+
+
+
+
+
+
+
+document.getElementById('btn-107').addEventListener('click', function () {
+    const currentDate = new Date();
+    document.getElementById('answer-107').textContent = timezone(currentDate);
+});
+
+
+
+function timezone(date) {
+    // Function to get the timezone name from the date object
+    return date.toLocaleTimeString('en-us', { timeZoneName: 'long' }).split(' ')[2];
+}
+
+document.getElementById('btn-107').addEventListener('submit', function () {
+    var dt = new Date();
+    var tz = timezone(dt);
+    document.getElementById('answer-107').textContent = tz;
+});
