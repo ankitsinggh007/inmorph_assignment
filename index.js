@@ -2521,3 +2521,678 @@ document.getElementById('btn-107').addEventListener('submit', function () {
     var tz = timezone(dt);
     document.getElementById('answer-107').textContent = tz;
 });
+
+
+const form = document.getElementById('form-108');
+
+const inputValue108 = document.getElementById('input-108');
+
+
+const answer108 = document.getElementById('answer-108');
+
+
+
+form.addEventListener('submit', function (event) {
+
+
+    event.preventDefault();
+
+    let extracted_value = inputValue108.value;
+
+    console.log(extracted_value, "extared value");
+
+    console.log(typeof extracted_value);
+
+
+    // Check if the input is a string
+    const result = is_string(extracted_value);
+
+    console.log(result)
+
+    const template = "";
+    answer108.innerText = is_string(extracted_value);
+
+    // `input value is ${result ? "string" : "not a string"}`;
+
+
+});
+
+function is_string(input) {
+    // nan
+    // strin
+    // undefined
+    // 
+
+    console.log("check nan", isNaN(input))
+    if (isNaN(input)) {
+
+        try {
+            let temp = JSON.parse(input);
+
+            console.log(temp, "temp")
+
+            if (Array.isArray(temp)) {
+                return `${input} is array`;
+            }
+            else if (typeof temp === 'object') {
+                return `${input} is object`;
+            }
+            else {
+                return `${input} is ${typeof temp}}`;
+
+            }
+
+
+        } catch (error) {
+
+            if (input != undefined && input != null) {
+
+                return ` ${input} is string    `;
+            }
+            else {
+                return `${input} is undefined or null`;
+            }
+
+
+
+        }
+
+
+    } else {
+        return `${input} is number`;
+    }
+
+
+
+
+}
+
+
+const form109 = document.getElementById('form-109');
+
+const inputValue109 = document.getElementById('input-109');
+
+const answer109 = document.getElementById('answer-109');
+
+
+form109.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let extracted_value = inputValue109.value;
+
+    extracted_value = extracted_value.trim();
+
+    if (extracted_value == '') {
+        answer109.innerText = "true";
+    }
+    else {
+        answer109.innerText = "false";
+    }
+
+})
+
+
+const form110 = document.getElementById('form-110');
+
+const inputValue110 = document.getElementById('input-110');
+
+const answer110 = document.getElementById('answer-110');
+
+
+form110.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    let extracted_value = inputValue110.value;
+
+
+    let ans = extracted_value.split(" ");
+
+    ans = JSON.stringify(ans);
+
+    answer110.innerText = ans;
+
+
+
+
+});
+const form111 = document.getElementById('form-111');
+const inputValue111 = document.getElementById('input-111');
+const answer111 = document.getElementById('answer-111');
+
+form111.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let extracted_value = inputValue111.value;
+    const result = abbrev_name(extracted_value);
+    answer111.innerText = result;
+});
+
+function abbrev_name(input) {
+    let names = input.split(' ');
+    return names.length > 1 ? names[0] + ' ' + names[1].charAt(0) + '.' : input;
+}
+
+// Question 112
+const form112 = document.getElementById('form-112');
+const inputValue112 = document.getElementById('input-112');
+const answer112 = document.getElementById('answer-112');
+
+form112.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let extracted_value = inputValue112.value;
+    const result = protect_email(extracted_value);
+    answer112.innerText = result;
+});
+
+function protect_email(email) {
+    let parts = email.split('@');
+    let name = parts[0];
+    return name.substring(0, name.length / 2) + '...' + '@' + parts[1];
+}
+
+// Question 113
+const form113 = document.getElementById('form-113');
+const inputValue113 = document.getElementById('input-113');
+const answer113 = document.getElementById('answer-113');
+
+form113.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let extracted_value = inputValue113.value;
+    const result = string_parameterize(extracted_value);
+    answer113.innerText = result;
+});
+
+function string_parameterize(input) {
+    return input.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+}
+
+// Question 114
+const form114 = document.getElementById('form-114');
+const inputValue114 = document.getElementById('input-114');
+const answer114 = document.getElementById('answer-114');
+
+form114.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let extracted_value = inputValue114.value;
+    const result = capitalize(extracted_value);
+    answer114.innerText = result;
+});
+
+function capitalize(input) {
+    return input.charAt(0).toUpperCase() + input.slice(1);
+}
+
+// Question 115
+const form115 = document.getElementById('form-115');
+const inputValue115 = document.getElementById('input-115');
+const answer115 = document.getElementById('answer-115');
+
+form115.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let extracted_value = inputValue115.value;
+    const result = capitalize_Words(extracted_value);
+    answer115.innerText = result;
+});
+
+function capitalize_Words(input) {
+    return input.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+}
+
+// Question 116
+const form116 = document.getElementById('form-116');
+const inputValue116 = document.getElementById('input-116');
+const answer116 = document.getElementById('answer-116');
+
+form116.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let extracted_value = inputValue116.value;
+    const result = swapcase(extracted_value);
+    answer116.innerText = result;
+});
+
+function swapcase(input) {
+    return input.split('').map(char => {
+        if (char === char.toUpperCase()) {
+            return char.toLowerCase();
+        } else {
+            return char.toUpperCase();
+        }
+    }).join('');
+}
+
+const form117 = document.getElementById('form-117');
+const inputValue117 = document.getElementById('input-117');
+const answer117 = document.getElementById('answer-117');
+
+form117.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let extracted_value = inputValue117.value;
+    const result = camelize(extracted_value);
+    answer117.innerText = result;
+});
+
+function camelize(str) {
+    return str.replace(/\W+(.)/g, function (match, chr) {
+        return chr.toUpperCase();
+    });
+}
+
+// Question 118
+const form118 = document.getElementById('form-118');
+const inputValue118 = document.getElementById('input-118');
+const delimiter118 = document.getElementById('delimiter-118');
+const answer118 = document.getElementById('answer-118');
+
+form118.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let extracted_value = inputValue118.value;
+    let delimiter = delimiter118.value;
+    const result = uncamelize(extracted_value, delimiter);
+    answer118.innerText = result;
+});
+
+function uncamelize(str, delimiter = ' ') {
+    return str.replace(/([a-z])([A-Z])/g, '$1' + delimiter + '$2').toLowerCase();
+}
+
+// Question 119
+const form119 = document.getElementById('form-119');
+const inputValue119 = document.getElementById('input-119');
+const times119 = document.getElementById('times-119');
+const answer119 = document.getElementById('answer-119');
+
+form119.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let extracted_value = inputValue119.value;
+    let times = times119.value || 1;
+    const result = repeat(extracted_value, times);
+    answer119.innerText = result;
+});
+
+function repeat(str, times = 1) {
+    return str.repeat(times);
+}
+
+// Question 120
+const form120 = document.getElementById('form-120');
+const mainString120 = document.getElementById('mainString-120');
+const insertString120 = document.getElementById('insertString-120');
+const position120 = document.getElementById('position-120');
+const answer120 = document.getElementById('answer-120');
+
+form120.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let mainStr = mainString120.value;
+    let insertStr = insertString120.value || '';
+    let position = position120.value || 1;
+    const result = insert(mainStr, insertStr, position);
+    answer120.innerText = result;
+});
+
+function insert(mainStr, insertStr, position = 1) {
+    return mainStr.slice(0, position) + insertStr + mainStr.slice(position);
+}
+
+const form121 = document.getElementById('form-121');
+const inputValue121 = document.getElementById('input-121');
+const length121 = document.getElementById('length-121');
+const ending121 = document.getElementById('ending-121');
+const answer121 = document.getElementById('answer-121');
+
+form121.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let extracted_value = inputValue121.value;
+    let length = length121.value;
+    let ending = ending121.value;
+    const result = text_truncate(extracted_value, length, ending);
+    answer121.innerText = result;
+});
+
+function text_truncate(str, length, ending) {
+    if (length == null) {
+        return str;
+    }
+    ending = ending || '...';
+    if (str.length > length) {
+        return str.substring(0, length - ending.length) + ending;
+    } else {
+        return str;
+    }
+}
+
+// Question 122
+const form122 = document.getElementById('form-122');
+const inputValue122 = document.getElementById('input-122');
+const length122 = document.getElementById('length-122');
+const answer122 = document.getElementById('answer-122');
+
+form122.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let extracted_value = inputValue122.value;
+    let length = length122.value;
+    const result = string_chop(extracted_value, length);
+    answer122.innerText = JSON.stringify(result);
+});
+
+function string_chop(str, length) {
+    if (length == null) {
+        return [str];
+    }
+    let reg = new RegExp('.{1,' + length + '}', 'g');
+    return str.match(reg);
+}
+
+// Question 123
+const form123 = document.getElementById('form-123');
+const mainString123 = document.getElementById('mainString-123');
+const substring123 = document.getElementById('substring-123');
+const caseSensitive123 = document.getElementById('caseSensitive-123');
+const answer123 = document.getElementById('answer-123');
+
+form123.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let mainStr = mainString123.value;
+    let subStr = substring123.value;
+    let caseSensitive = caseSensitive123.checked;
+    const result = count(mainStr, subStr, caseSensitive);
+    answer123.innerText = result;
+});
+
+function count(mainStr, subStr, caseSensitive = true) {
+    if (!caseSensitive) {
+        mainStr = mainStr.toLowerCase();
+        subStr = subStr.toLowerCase();
+    }
+    return mainStr.split(subStr).length - 1;
+}
+
+// Question 124
+const form124 = document.getElementById('form-124');
+const inputValue124 = document.getElementById('input-124');
+const answer124 = document.getElementById('answer-124');
+
+form124.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let extracted_value = inputValue124.value;
+    const result = escape_HTML(extracted_value);
+    answer124.innerText = result;
+});
+
+function escape_HTML(str) {
+    return str.replace(/[&<>"']/g, function (match) {
+        const escape = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        };
+        return escape[match];
+    });
+}
+const form126 = document.getElementById('form-126');
+const inputValue126 = document.getElementById('input-126');
+const times126 = document.getElementById('times-126');
+const answer126 = document.getElementById('answer-126');
+
+form126.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let extracted_value = inputValue126.value;
+    let times = times126.value;
+    const result = repeat_string(extracted_value, times);
+    answer126.innerText = result;
+});
+
+function repeat_string(str, times = 1) {
+    console.log(str, typeof str, "within")
+
+    if (typeof str === "string") {
+        return str.repeat(times);
+
+    }
+
+
+}
+
+const form127 = document.getElementById('form-127');
+const input127 = document.getElementById('input-127');
+const search127 = document.getElementById('search-127');
+const answer127 = document.getElementById('answer-127');
+
+form127.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let str = input127.value.trim();
+    let searchStr = search127.value.trim();
+    let result = remove_first_occurrence(str, searchStr);
+    answer127.textContent = result;
+});
+
+function remove_first_occurrence(str, searchStr) {
+    let index = str.indexOf(searchStr);
+    if (index === -1) {
+        return str;
+    }
+    return str.slice(0, index) + str.slice(index + searchStr.length);
+}
+
+// Function for question 128
+const form128 = document.getElementById('form-128');
+const input128 = document.getElementById('input-128');
+const answer128 = document.getElementById('answer-128');
+
+form128.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let asciiStr = input128.value.trim();
+    let result = ascii_to_hexa(asciiStr);
+    answer128.textContent = result;
+});
+
+function ascii_to_hexa(str) {
+    let hex = '';
+    for (let i = 0; i < str.length; i++) {
+        let hexChar = str.charCodeAt(i).toString(16);
+        hex += hexChar.length === 1 ? '0' + hexChar : hexChar;
+    }
+    return hex;
+}
+
+// Function for question 129
+const form129 = document.getElementById('form-129');
+const input129 = document.getElementById('input-129');
+const answer129 = document.getElementById('answer-129');
+
+form129.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let hexStr = input129.value.trim();
+    let result = hex_to_ascii(hexStr);
+    answer129.textContent = result;
+});
+
+function hex_to_ascii(hexStr) {
+    let str = '';
+    for (let i = 0; i < hexStr.length; i += 2) {
+        let hex = hexStr.substr(i, 2);
+        let char = String.fromCharCode(parseInt(hex, 16));
+        str += char;
+    }
+    return str;
+}
+
+// Function for question 130
+const form130 = document.getElementById('form-130');
+const inputStr130 = document.getElementById('input-str-130');
+const word130 = document.getElementById('word-130');
+const answer130 = document.getElementById('answer-130');
+
+form130.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let str = inputStr130.value.trim();
+    let wordToFind = word130.value.trim();
+    let result = search_word(str, wordToFind);
+    answer130.textContent = result;
+});
+
+function search_word(str, word) {
+    let count = 0;
+    let words = str.split(' ');
+    for (let i = 0; i < words.length; i++) {
+        if (words[i] === word) {
+            count++;
+        }
+    }
+    return `'${word}' was found ${count} times.`;
+}
+
+// Function for question 131
+const form131 = document.getElementById('form-131');
+const inputStr131 = document.getElementById('input-str-131');
+const suffix131 = document.getElementById('suffix-131');
+const answer131 = document.getElementById('answer-131');
+
+form131.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let str = inputStr131.value.trim();
+    let suffix = suffix131.value.trim();
+    let result = string_endsWith(str, suffix);
+    answer131.textContent = result ? 'true' : 'false';
+});
+
+function string_endsWith(str, suffix) {
+    return str.endsWith(suffix);
+}
+
+const form132 = document.getElementById('form-132');
+const input132 = document.getElementById('input-132');
+const answer132 = document.getElementById('answer-132');
+
+form132.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let str = input132.value.trim();
+    let result = escape_html(str);
+    answer132.textContent = result;
+});
+
+function escape_html(str) {
+    return str.replace(/[&<>"']/g, function (match) {
+        return {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        }[match];
+    });
+}
+
+// Function for question 133
+const form133 = document.getElementById('form-133');
+const input133 = document.getElementById('input-133');
+const answer133 = document.getElementById('answer-133');
+
+form133.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let str = input133.value.trim();
+    let result = remove_non_ascii(str);
+    answer133.textContent = result;
+});
+
+function remove_non_ascii(str) {
+    return str.replace(/[^\x20-\x7E]/g, '');
+}
+
+// Function for question 134
+const form134 = document.getElementById('form-134');
+const input134 = document.getElementById('input-134');
+const answer134 = document.getElementById('answer-134');
+
+form134.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let str = input134.value.trim();
+    let result = remove_non_word(str);
+    answer134.textContent = result;
+});
+
+function remove_non_word(str) {
+    return str.replace(/[^\w\s-]/g, '');
+}
+
+// Function for question 135
+const form135 = document.getElementById('form-135');
+const input135 = document.getElementById('input-135');
+const answer135 = document.getElementById('answer-135');
+
+form135.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let str = input135.value.trim();
+    let result = sentenceCase(str);
+    answer135.textContent = result;
+});
+
+function sentenceCase(str) {
+    return str.toLowerCase().replace(/(^|\.\s+|\s+)\w/g, function (c) {
+        return c.toUpperCase();
+    });
+}
+
+// Function for question 136
+const form136 = document.getElementById('form-136');
+const input136 = document.getElementById('input-136');
+const answer136 = document.getElementById('answer-136');
+
+form136.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let str = input136.value.trim();
+    let result = strip_html_tags(str);
+    answer136.textContent = result;
+});
+
+function strip_html_tags(str) {
+    return str.replace(/<[^>]*>/g, '');
+}
+
+// Function for question 137
+const form137 = document.getElementById('form-137');
+const inputNum137 = document.getElementById('input-num-137');
+const inputWidth137 = document.getElementById('input-width-137');
+const inputSign137 = document.getElementById('input-sign-137');
+const answer137 = document.getElementById('answer-137');
+
+form137.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let num = parseInt(inputNum137.value.trim());
+    let width = parseInt(inputWidth137.value.trim());
+    let sign = inputSign137.value.trim();
+    let result = zeroFill(num, width, sign);
+    answer137.textContent = result;
+});
+
+function zeroFill(num, width, sign = '') {
+    let numStr = Math.abs(num).toString();
+    while (numStr.length < width) {
+        numStr = '0' + numStr;
+    }
+    if (num < 0) {
+        numStr = sign + numStr;
+    } else {
+        numStr = (sign === '+' ? '+' : '') + numStr;
+    }
+    return numStr;
+}
+
+// Function for question 138
+const form138 = document.getElementById('form-138');
+const inputStr1138 = document.getElementById('input-str1-138');
+const inputStr2138 = document.getElementById('input-str2-138');
+const answer138 = document.getElementById('answer-138');
+
+form138.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let str1 = inputStr1138.value.trim();
+    let str2 = inputStr2138.value.trim();
+    let result = compare_strings(str1, str2);
+    answer138.textContent = result ? 'true' : 'false';
+});
+
+function compare_strings(str1, str2) {
+    return str1.toUpperCase() === str2.toUpperCase();
+}
